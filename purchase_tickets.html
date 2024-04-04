@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Event tickets</title>
+    <link rel="icon" href="image/logo-rb.png" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+        .title{
+          background-color: #2eaac9;
+          padding: 2%;
+          color: rgba(33, 49, 185, 0.824); 
+        }
+        .text img {
+          width: 100%; 
+          height: 200px; 
+          object-fit: cover;      
+        }
+        .a{
+          text-align: left;
+        }
+        .booking-section {
+          background-color: #f2f2f2;
+          padding: 20px;
+          border-radius: 5px;
+        }
+        
+        .form-group {
+          margin-bottom: 15px;
+        }
+        
+        .form-group label {
+          display: block;
+          font-weight: bold;
+          margin-bottom: 5px;
+        }
+        
+        
+        .form-group select {
+          width: 100%;
+          padding: 8px;
+          border: 1px solid #ccc;
+          border-radius: 4px;
+        }
+        
+        .btn {
+          background-color: #0F6A80;
+          color: #fff;
+          padding: 10px 20px;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        
+        .btn:hover {
+          background-color: #0b475a;
+        }
+        </style>
+  </head>
+
+  <body>
+    <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-gradient py-sm-2 py-lg-3 fw-bold " data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4" href="index.html">
+          <img src="image/logo-rb.png" alt="Logo" width="50" height="40" class="d-inline-block">
+          <span class="text-info">Blue Ocean</span>
+           Club</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active " href="events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="facilities.html">Facilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booknow.html">Book Now</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a>
+                </li>
+            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster">
+                <li><a class="dropdown-item" href="#">Administrator</a></li>
+                <li><a class="dropdown-item" href="#">Member</a></li>
+                <li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="register.html" class="nav-link"><span><i class="bi bi-box-arrow-in-right"></i></span> Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="booking-section">
+        <h2>Purchase Event Tickets</h2>
+    <form id="ticketForm">
+            <div class="form-group">
+                <label for="fullName">Full Name:</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+        
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+
+        <div class="form-group">
+        <label for="eventSelect">Choose Event:</label>
+        <select id="eventSelect" name="eventSelect" required>
+            <option value="swimming">Swimming Competitions</option>
+            <option value="lectures">Technical Lectures</option>
+            <option value="Holiday Themed Events">Holiday Themed Events</option>
+            <option value="Social Events">Social Events</option>
+            <option value="Outdoor Swimming Activities">Outdoor Swimming Activities</option>
+            <option value="Training Camps and Workshops">Training Camps and Workshops</option>
+        </select><br><br> </div>
+
+    
+        <div class="form-group">
+        <label for="ticketQuantity">Choose Ticket Quantity:</label>
+        <input type="number" id="ticketQuantity" name="ticketQuantity" min="1" value="1" required><br><br>
+        
+        <label for="paymentMethod">Choose Payment Method:</label>
+        <select id="paymentMethod" name="paymentMethod" required>
+            <option value="creditCard">Credit Card</option>
+            <option value="debitCard">Debit Card</option>
+            <option value="paypal">PayPal</option>
+        </select><br><br>
+
+        <button type="button" onclick="purchaseTickets()" class="btn">Purchase Tickets</button>
+    </div>
+    </form>
+
+    <div id="totalPrice"></div>
+    <div id="orderDetails" style="display: none;"></div>
+
+    <script>
+        function purchaseTickets() {
+            var selectedEvent = document.getElementById("eventSelect").value;
+            var ticketQuantity = parseInt(document.getElementById("ticketQuantity").value);
+            var totalPrice = calculateTotalPrice(selectedEvent, ticketQuantity);
+            var paymentMethod = document.getElementById("paymentMethod").value;
+            document.getElementById("totalPrice").innerHTML = "Total Price: $" + totalPrice;
+            document.getElementById("orderDetails").innerHTML = "Event: " + selectedEvent + "<br>" +
+                                                                "Ticket Quantity: " + ticketQuantity + "<br>" +
+                                                                "Total Price: $" + totalPrice + "<br>" +
+                                                                "Payment Method: " + paymentMethod + "<br>";
+            document.getElementById("orderDetails").style.display = "block";
+        }
+
+        function calculateTotalPrice(event, quantity) {
+            var ticketPrices = {
+                "swimming": 20,
+                "lectures": 30,
+                "Holiday Themed Events": 32,
+                "Social Events": 70,
+                "Outdoor Swimming Activities": 22,
+                "Training Camps and Workshops": 66,
+            };
+            var pricePerTicket = ticketPrices[event];
+            var totalPrice = pricePerTicket * quantity;
+            return totalPrice;
+        }
+    </script>
+
+    <footer class="text-light pt-5 pb-4">
+        <div class="container text-center text-md-right">
+          <div class="row text-center text-md-right">
+            <div class="col-md-4 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold text-info">Blue Ocean <span class="text-light">Club</span></h5>
+              <p>Welcome to Blue Ocean Club! We're dedicated to providing a welcoming and inclusive environment where swimmers of all ages and abilities can thrive. Whether you're just starting your swimming journey or aiming for competitive success, we have something for everyone.</p>
+            </div>
+  
+            <div class="col-md-3 mx-auto mt-3">
+              <h5 class="text-uppercase mb-4 fw-bold">Contact</h5>
+              <div class="col-md mx-auto">
+                <p>
+                  <i class="fas fa-home mr-3"></i> <a href="https://maps.app.goo.gl/vpiFL9EwChkxR76r7" class="link-opacity-50-hover text-decoration-none text-light">Desa Setapak<br>
+                53100 Kuala Lumpur<br> </a>
+                </p>
+                <p>
+                  <i class="fas fa-envelope mr-3"></i> <a href="mailto:sc@gmail.com" class="link-opacity-50-hover text-decoration-none text-light">blueoceanclub@gmail.com</a>
+                </p>
+                <p>
+                  <i class="fas fa-phone mr-3"></i> <a href="tel:+60 12345678" class="link-opacity-50-hover text-decoration-none text-light">+60 17-668 6635</a>
+                </p>
+                <p>
+                  <i class="fas fa-print mr-3"></i> <a href="tel:+03 456 789 12" class="link-opacity-50-hover text-decoration-none text-light">+03 456 789 12</a>
+                </p>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="mt-4">
+  
+        <div class="row text-start">
+          <div class="col-md-7 col-lg-8 ">
+            <p>
+              Copyright &copy;2024 All rights reserved by:
+              <a href="#" class="text-info link-opacity-50-hover text-decoration-none fw-bold">Blue Ocean <span class="text-light">Club</span></a>
+            </p>
+          </div>
+  
+          <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="https://www.facebook.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://twitter.com/home" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.instagram.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://discord.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fa-discord"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.youtube.com/watch?v=q-rhOvhcPE0" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-youtube"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://ms.wikipedia.org/wiki/Babi" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fa-telegram"></i></a>
+                </li>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://en.wikipedia.org/wiki/Kris_Wu" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fab fa-weibo"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+      </footer>
+  
+  
+      <script src="js/bootstrap.bundle.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
+      <script>
+        function navigate(sectionId) {
+  
+          var navbarCollapse = document.getElementById('navbar');
+          navbarCollapse.classList.remove('show');
+  
+  
+          var section = document.getElementById(sectionId);
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+  
+      </script>
+    </body>
+</html>
