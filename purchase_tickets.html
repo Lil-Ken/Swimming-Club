@@ -164,10 +164,10 @@
             var ticketQuantity = parseInt(document.getElementById("ticketQuantity").value);
             var totalPrice = calculateTotalPrice(selectedEvent, ticketQuantity);
             var paymentMethod = document.getElementById("paymentMethod").value;
-            document.getElementById("totalPrice").innerHTML = "Total Price: $" + totalPrice;
+            document.getElementById("totalPrice").innerHTML = "Total Price: RM" + totalPrice;
             document.getElementById("orderDetails").innerHTML = "Event: " + selectedEvent + "<br>" +
                                                                 "Ticket Quantity: " + ticketQuantity + "<br>" +
-                                                                "Total Price: $" + totalPrice + "<br>" +
+                                                                "Total Price: RM" + totalPrice + "<br>" +
                                                                 "Payment Method: " + paymentMethod + "<br>";
             document.getElementById("orderDetails").style.display = "block";
         }
