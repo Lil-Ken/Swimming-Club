@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -11,6 +12,83 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
+
+    <style>
+        .image {
+           float: left; 
+           margin-top: 40px; 
+             margin-left: 40px;
+             margin-bottom: 40px; 
+             margin-right: 20px;
+           width: 350px; 
+           height: 350px;
+         }
+     
+         .h2-text{
+             font-size: 30px;
+         }
+         .content {
+             display: flex; 
+           align-items: flex-start; 
+           margin-bottom: 10px; 
+         }
+     
+         .text {
+             margin-right: 40px;
+             margin-bottom: 40px;
+             font-size: 20px;
+             flex-grow: 1;
+             font-family: Arial, sans-serif;
+         }
+     
+         .date {
+           font-size: 24px;
+           margin-left: 40px;
+             margin-bottom: 40px; 
+             margin-right: 20px;
+         }
+
+         .purchase-button {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        transform: scale(1.1);
+        transition: background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    .purchase-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.2);
+    }
+
+    .centered-button {
+            display: block;
+            width: 200px; 
+            margin: 0 auto; 
+            text-align: center;
+            padding: 10px; 
+            background-color: #007bff; 
+            color: #ffffff; 
+            border: none; 
+            border-radius: 5px; 
+            text-decoration: none; 
+            transition: background-color 0.3s;
+            font-size: 16px; 
+            transform: scale(1.2);
+          }
+
+          .centered-button:hover {
+            background-color: #0056b3;
+        }
+
+        .highlight {
+        background-color: yellow;
+        font-weight: bold;
+    }
+       </style>
   </head>
 
   <body>
@@ -28,7 +106,7 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active " href="events.html">Events</a>
@@ -37,7 +115,7 @@
                   <a class="nav-link" href="facilities.html">Facilities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="booknow.html">Book Now</a>
+                    <a class="nav-link" href="booknow.html">Book Now</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
@@ -50,8 +128,8 @@
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
               <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster">
-                <li><a class="dropdown-item" href="admin.html">Administrator</a></li>
-                <li><a class="dropdown-item" href="member.html">Member</a></li>
+                <li><a class="dropdown-item" href="#">Administrator</a></li>
+                <li><a class="dropdown-item" href="#">Member</a></li>
                 <li>
               </ul>
             </li>
@@ -62,6 +140,137 @@
         </div>
       </div>
     </nav>
+
+    <h1 class="title"><center>Events</center></h1>
+    <form class="d-flex ms-auto" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
+      <button class="btn btn-outline-light" type="submit">Search</button>
+    </form>
+  
+   
+   <script>
+    function searchEvents() {
+        // Get the input value in the search box
+        var searchKeyword = document.getElementById("searchInput").value.toLowerCase();
+        
+        var titles = document.querySelectorAll(".h2-text");
+        
+        for (var i = 0; i < titles.length; i++) {
+            var titleText = titles[i].textContent.toLowerCase();
+            // If a matching title is found, scroll to the title and highlight the keyword
+            if (titleText.includes(searchKeyword)) {
+                titles[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
+                // Highlight keywords
+                highlightKeyword(titles[i], searchKeyword);
+                break; 
+            }
+        }
+    }
+
+    // 高亮显示关键字
+    function highlightKeyword(element, keyword) {
+        var innerHTML = element.innerHTML;
+        var index = innerHTML.toLowerCase().indexOf(keyword);
+        if (index >= 0) {
+            innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
+            element.innerHTML = innerHTML;
+        }
+    }
+</script>
+
+
+    <table>
+        <tr>
+          <td>
+            <div class="content">
+              <img src="event1.avif" alt="Swimming Competitions" class="image">
+              <div class="text">
+                <h2 class="h2-text">Swimming Competitions</h2>
+                <p>Blue Ocean Swimming Club competitions are a great opportunity to showcase your swimming skills and challenge yourself. We host a variety of different types of competitions including freestyle, breaststroke, backstroke and more to suit participants of all ages and skill levels.</p>
+                <p>RM20</p>
+                <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+              </div>
+            </div>
+            <p class="date"><strong>Start date:</strong>  3 May 2024</p>
+            <p class="date"><strong>End date:</strong> 4 May 2024</p>
+          </td>
+          
+          
+          <td>
+            <div class="content">
+              <img src="event2.jpeg" alt="Technical Lectures" class="image">
+              <div class="text">
+                <h2 class="h2-text">Technical Lectures</h2>
+                <p>Blue Ocean Swimming Club will invite professional coaches and senior swimmers to share their experiences and techniques. Whether you are a beginner or an experienced player, these lectures will provide you with valuable knowledge and insights. This knowledge can help you improve your swimming skills.</p>
+                <p>RM30</p>
+                <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+              </div>
+            </div>
+            <p class="date"><strong>Start date:</strong>  3 May 2024</p>
+            <p class="date"><strong>End date:</strong> 4 May 2024</p>
+          </td>
+        </tr>
+        <tr>
+            <td>
+              <div class="content">
+                <img src="event3.jpg" alt="Holiday Themed Events" class="image">
+                <div class="text">
+                  <h2 class="h2-text">Holiday Themed Events</h2>
+                  <p>Blue Ocean Swimming Club has launched holiday themed events. Whether it's a Christmas swim party or a Halloween themed competition, we will bring you a unique experience.</p>
+                  <p>RM32</p>
+                  <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+                </div>
+              </div>
+              <p class="date"><strong>Start date:</strong>  9 October 2024</p>
+            <p class="date"><strong>End date:</strong> 10 October 2024</p>
+            </td>
+            
+            <td>
+              <div class="content">
+                <img src="event4.jpg" alt="Social Events" class="image">
+                <div class="text">
+                  <h2 class="h2-text">Social Events</h2>
+                  <p>Blue Ocean Swimming Club will hold social activities among members. You are welcome to attend our dinner parties, bonfires and swimming parties to exchange swimming experiences with other members and make new friends.</p>
+                  <p>RM70</p>
+                  <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+                </div>
+              </div>
+              <p class="date"><strong>Start date:</strong>  12 June 2024</p>
+              <p class="date"><strong>End date:</strong> 15 June 2024</p>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <div class="content">
+                <img src="event5.jpg"Outdoor Swimming Activities" class="image">
+                <div class="text">
+                  <h2 class="h2-text">Outdoor Swimming Activities</h2>
+                  <p>Blue Ocean Swimming Club will organize various open water swimming activities, diving, snorkeling and water sports competitions to allow members to enjoy the beauty of nature.</p>
+                  <p>RM22</p>
+                  <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+                </div>
+              </div>
+              <p class="date"><strong>Start date:</strong>  23 July 2024</p>
+            <p class="date"><strong>End date:</strong> 24 July 2024</p>
+            </td>
+            
+            <td>
+              <div class="content">
+                <img src="event6.jpg" alt="Training Camps and Workshops" class="image">
+                <div class="text">
+                  <h2 class="h2-text">Training Camps and Workshops</h2>
+                  <p>Blue Ocean Swimming Club hosts training camps and technical workshops. We tailor activities for different skill levels, whether you are a beginner or an experienced player, our activities will provide you with valuable learning opportunities.</p>
+                  <p>RM66</p>
+                  <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
+                </div>
+              </div>
+              <p class="date"><strong>Start date:</strong>  1 August 2024</p>
+            <p class="date"><strong>End date:</strong> 7 August 2024</p>
+            </td>
+          </tr>
+      </table>
+      <a href="booking_status.html" class="centered-button">View Booking Status</a>
+      
 
     <footer class="text-light pt-5 pb-4">
         <div class="container text-center text-md-right">
