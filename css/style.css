@@ -161,34 +161,3 @@ body {
 
 }
 
-
-.title{
-  background-color: #2eaac9;
-  padding: 2%;
-  color: rgba(33, 49, 185, 0.824);
-  
-}
-
-.image-container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between; 
-  gap: 20px;
-}
-
-.image-wrapper {
-  flex: 0 0 calc(33.33% - 20px); 
-  max-width: calc(33.33% - 20px); 
-  display: flex; 
-  padding: 15px; 
-}
-
-.image-wrapper img {
-  width: 50%; 
-  height: auto;
-  display: block;
-}
-
-.description {
-  padding-left: 10px; 
-}
