@@ -10,6 +10,10 @@
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+.navbar {
+  background-color: #0F6A80;
+}
+
 body {
   margin-top: 40px; 
   background-color: #E0E7FF;
