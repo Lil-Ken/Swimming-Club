@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,67 +11,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
-    <style>
-      body{
-        background-image: url(image/admin.jpg);
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-      }
-
-      .login-container {
-        background-color: rgba(237, 159, 213, 0.792);
-        max-width: 400px;
-        margin: 100px auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 15px;
-        transition: transform 0.3s ease-in-out, background-color 0.2s ease-in-out;
-      }
-
-      .login-container:hover {
-        background-color: rgba(228, 129, 224, 0.897);
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
-        transform: scale(1.01);
-      }
-
-      .form-group {
-        margin-bottom: 15px;
-      }
-
-      label {
-        display: block;
-        margin-bottom: 5px;
-      }
-
-      input[type="text"],
-      input[type="password"] {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 3px;
-      }
-
-      .loginbutton {
-        display: block;
-        width: 100%;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 3px;
-        cursor: pointer;
-      }
-
-      button:hover {
-        background-color: #0056b3;
-      }
-
-  </style>
-
   </head>
   <body>
-
     <!-- navbar -->
     <nav class="navbar navbar-expand-lg sticky-top bg-gradient py-sm-2 py-lg-3 fw-bold " data-bs-theme="dark">
       <div class="container-fluid">
@@ -85,30 +25,36 @@
         </button>
 
         <div class="collapse navbar-collapse" id="navbar">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="events.html">Events</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="facilities.html">Facilities</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="booknow.html">Book Now</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a>
-                </li>
-            </ul>
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facilities.html">Facilities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booknow.html">Book Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="coach.html">Coaches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pricing.html">Member Package</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a>
+            </li>
+          </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">
-              <a href="#" class="nav-link dropdown-toggle active" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
-              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster">
+              <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
                 <li><a class="dropdown-item" href="admin.html">Administrator</a></li>
                 <li><a class="dropdown-item" href="member.html">Member</a></li>
                 <li>
@@ -122,46 +68,69 @@
       </div>
     </nav>
 
-</head>
-<body>
-  <div class="login-container">
-    <h2>Admin Login</h2>
-    <form id="login-form" action="adminlogin.php" method="POST">
-      <div class="form-group">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required>
+  <!-- form -->
+  <div class="container text-dark my-5">
+    <div class="container mb-5">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="card text-bg-light col-5" style="border-radius: 25px;">
+          <div class="card-body px-2 py-4">
+            <div class="row justify-content-center align-items-center">
+              <h3 class="text-center h1 fw-bold mb-4 mx-1 mx-md-4">ADMIN LOGIN</h3>
+              <form class="mx-1 mx-md-4" action="admin-events.php" method="post">
+                <div class="row justify-content-center">
+                  <div class="col-md-9">
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-user fa-lg me-3 fa-fw"></i>
+                      <div class="form-floating flex-fill mb-0 text-muted">
+                        <input type="text" id="name" class="form-control border-3 border-0 border-bottom border-dark pb-1" placeholder="your name" required/>
+                        <label for="name">Admin ID</label>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                      <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
+                      <div class="form-floating flex-fill mb-0 text-muted">
+                        <input type="password" id="password" class="form-control border-3 border-0 border-bottom border-dark pb-1" placeholder="password" required/>
+                        <label class="form-label" for="password">Password</label>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="d-flex justify-content-center mx-4 mt-2 mb-lg-3">
+                    <button type="submit" class="btn btn-info btn-lg">Login</button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            <p class="text-center mt-4 mb-0 text-dark">Forget Password? <a href="#"
+              class="link fw-bold"><u>Click here</u></a></p>
+          </div>
+        </div>
       </div>
-      <div class="form-group">
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required>
-      </div>
-      <button type="submit" class="loginbutton">Login</button>
-    </form>
+    </div>
   </div>
 
-  <footer class="text-light pt-5 pb-4">
+    <!-- footer -->
+    <footer class="text-light pt-5 pb-4">
         <div class="container text-center text-md-right">
           <div class="row text-center text-md-right">
             <div class="col-md-4 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 fw-bold text-info">Blue Ocean <span class="text-light">Club</span></h5>
+              <h4 class="text-uppercase mb-4 fw-bold text-info">Blue Ocean <span class="text-light">Club</span></h4>
               <p>Welcome to Blue Ocean Club! We're dedicated to providing a welcoming and inclusive environment where swimmers of all ages and abilities can thrive. Whether you're just starting your swimming journey or aiming for competitive success, we have something for everyone.</p>
             </div>
   
             <div class="col-md-3 mx-auto mt-3">
-              <h5 class="text-uppercase mb-4 fw-bold">Contact</h5>
+              <h4 class="text-uppercase mb-4 fw-bold"><u>Contact Us</u></h4>
               <div class="col-md mx-auto">
                 <p>
-                  <i class="fas fa-home mr-3"></i> <a href="https://maps.app.goo.gl/vpiFL9EwChkxR76r7" class="link-opacity-50-hover text-decoration-none text-light">Desa Setapak<br>
-                53100 Kuala Lumpur<br> </a>
+                  <i class="fas fa-home mr-3"></i> <a href="https://maps.app.goo.gl/vpiFL9EwChkxR76r7" target="blank" class="link-opacity-50-hover text-decoration-none text-light">Desa Setapak 53100 Kuala Lumpur</a>
                 </p>
                 <p>
-                  <i class="fas fa-envelope mr-3"></i> <a href="mailto:sc@gmail.com" class="link-opacity-50-hover text-decoration-none text-light">blueoceanclub@gmail.com</a>
+                  <i class="fas fa-envelope mr-3"></i> <a href="mailto:sc@gmail.com" target="blank" class="link-opacity-50-hover text-decoration-none text-light">blueoceanclub@gmail.com</a>
                 </p>
                 <p>
-                  <i class="fas fa-phone mr-3"></i> <a href="tel:+60 12345678" class="link-opacity-50-hover text-decoration-none text-light">+60 17-668 6635</a>
+                  <i class="fas fa-phone mr-3"></i> <a href="tel:+60 12345678" target="blank" class="link-opacity-50-hover text-decoration-none text-light">+60 17-668 6635</a>
                 </p>
                 <p>
-                  <i class="fas fa-print mr-3"></i> <a href="tel:+03 456 789 12" class="link-opacity-50-hover text-decoration-none text-light">+03 456 789 12</a>
+                  <i class="fas fa-print mr-3"></i> <a href="tel:+03 456 789 12" target="blank" class="link-opacity-50-hover text-decoration-none text-light">+03 456 789 12</a>
                 </p>
             </div>
           </div>
@@ -206,10 +175,47 @@
             </div>
           </div>
         </div>
+    </footer>
   
-      </footer>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  
+    <script src="js/bootstrap.bundle.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
+    <script>
+    function navigate(sectionId) {
 
+        var navbarCollapse = document.getElementById('navbar');
+        navbarCollapse.classList.remove('show');
+
+
+        var section = document.getElementById(sectionId);
+        section.scrollIntoView({ behavior: 'smooth' });
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var aboutLink = document.querySelector('.nav-link[href="#about"]');
+        var contactLink = document.querySelector('.nav-link[href="#contact"]');
+
+        aboutLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        setActiveNavLink(aboutLink);
+        navigate('about');
+        });
+
+        contactLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        setActiveNavLink(contactLink);
+        navigate('contact');
+        });
+
+        function setActiveNavLink(link) {
+        var activeLinks = document.querySelectorAll('.nav-link.active');
+        activeLinks.forEach(function(activeLink) {
+            activeLink.classList.remove('active');
+        });
+        link.classList.add('active');
+        }
+    });
+    </script>
 </body>
 </html>
-
