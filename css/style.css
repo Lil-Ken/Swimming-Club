@@ -25,7 +25,11 @@ body {
 
 ul.dropdown-menu,
 a.dropdown-item:hover{
-  background-color: #0F6A80CC;
+  background-color: #0F6A8088;
+}
+
+ul.dropdown-menu{
+  opacity: 75;
 }
 
 .adjust-margin{
@@ -73,6 +77,17 @@ a.dropdown-item:hover{
   left: 0;
   background-color: rgba(0,0,0,0.5);
   z-index: 1;
+}
+
+.servicecard{
+  background-color: #fff2;
+  transition: transform 0.3s ease;
+}
+.servicecard:hover{
+  background-color: #fff6;
+  opacity: 100;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  transform: scale(1.01);
 }
 
 @media (min-width: 320px){
