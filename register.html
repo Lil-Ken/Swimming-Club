@@ -11,9 +11,10 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
     <style>
-        body{
-            background-color: #E0E7FF;
-        }
+      body{
+          background-color: #E0E7FF;
+      }
+    
     </style>
   </head>
   <body>
@@ -117,15 +118,26 @@
                         <div class="flex-fill mb-0 text-muted input-group">
                           <input type="text" placeholder="+60" class="form-control border-5 border-0 border-bottom border-primary pb-1" disabled>
                           <div class="form-floating flex-fill mb-0 text-muted w-75">
-                            <input type="text" class="form-control border-5 border-0 border-bottom border-primary" id="phone" name="phone" placeholder="Phone Number" required>
+                            <input type="text" class="form-control border-5 border-0 border-bottom border-primary pb-1" id="phone" name="phone" placeholder="Phone Number" required>
                             <label for="phone" class="form-label">Phone Number</label>
                           </div>
                         </div>
                       </div>
 
-                      <div class="d-flex flex-row align-items-center mb-4">
+                      <div class="d-flex flex-row align-items-center">
+                        <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
+                        <label class="visually-hidden" for="package">Preference</label>
+                        <select class="form-select text-muted form-select-lg py-2 border-5 border-0 border-bottom border-primary" id="package">
+                          <option selected>Choose a Member Pakage</option>
+                          <option value="1">Basic</option>
+                          <option value="2">Pro</option>
+                          <option value="3">VIP</option>
+                        </select>
+                      </div>
+                      
+                      <a href="pricing.html" class="mb-5"><i class="fa-solid fa-circle-info fa-sm ms-5 me-2 text-light"></i>view details</a>
 
-                        
+                      <div class="d-flex flex-row align-items-center mb-4 mt-4">
                         <div class="form-check form-check-inline flex-fill mb-0 ms-3">
                           
                           <input class="form-check-input" type="radio" name="gender" id="gender1"
@@ -148,11 +160,10 @@
                         </div>
                       </div>
 
-                      
                       <div class="form-check d-flex justify-content-center mb-5">
-                        <input class="form-check-input me-2" type="checkbox" value="" id="agree" required/>
+                        <input class="form-check-input me-2" type="checkbox" value="agree" id="agree" required/>
                         <label class="form-check-label" for="agree">
-                          I agree all statements in <a href="#!">Terms of service</a>
+                          I agree all statements in <a href="#">Terms of service</a>
                         </label>
                       </div>
     
@@ -169,7 +180,7 @@
     
                   </div>
                 </div>
-                <p class="text-center mt-4 mb-0 text-light">Have already an account? <a href="#!"
+                <p class="text-center mt-4 mb-0 text-light">Have already an account? <a href="member.html"
                   class="link fw-bold"><u>Login here</u></a></p>
               </div>
             </div>
