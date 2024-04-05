@@ -347,7 +347,31 @@
         var section = document.getElementById(sectionId);
         section.scrollIntoView({ behavior: 'smooth' });
       }
+      
+      document.addEventListener('DOMContentLoaded', function() {
+        var aboutLink = document.querySelector('.nav-link[href="#about"]');
+        var contactLink = document.querySelector('.nav-link[href="#contact"]');
 
+        aboutLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          setActiveNavLink(aboutLink);
+          navigate('about');
+        });
+
+        contactLink.addEventListener('click', function(event) {
+          event.preventDefault();
+          setActiveNavLink(contactLink);
+          navigate('contact');
+        });
+
+        function setActiveNavLink(link) {
+          var activeLinks = document.querySelectorAll('.nav-link.active');
+          activeLinks.forEach(function(activeLink) {
+            activeLink.classList.remove('active');
+          });
+          link.classList.add('active');
+        }
+      });
     </script>
   </body>
 </html>
