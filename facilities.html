@@ -13,18 +13,31 @@
     <link href="css/style.css" rel="stylesheet">
     <style type="text/css">
       .title{
-      background-color: #2eaac9;
       padding: 2%;
-      color: rgba(33, 49, 185, 0.824); 
       }
       .text img {
         width: 100%; 
         height: 200px; 
         object-fit: cover;      
       }
-      .a{
-        text-align: left;
+
+      .text {
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 450px;
+        overflow: hidden;
       }
+
+      .text:hover {
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .text img {
+        width: 100%;
+        transition: all 0.3s ease;
+      }
+
     </style>
   </head>
 
@@ -43,16 +56,16 @@
         <div class="collapse navbar-collapse" id="navbar">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link " aria-current="page" href="index.html">Home</a>
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="events.html">Events</a>
+                  <a class="nav-link " href="events.html">Events</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link active" href="facilities.html">Facilities</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="booknow.html">Book Now</a>
+                    <a class="nav-link" href="booknow.html">Book Now</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
@@ -78,55 +91,68 @@
       </div>
     </nav>
 
-    <h1 class="title"><center>Facilities</center></h1>
+    <a id="facilities"></a>
 
-    <div class="container ">
-      <div class="row">
-        <div class="g-4 col-9 col-md-4">
+    <div class="container py-5 my-2 ">
+        
+        <div class="row justify-content-center">
+        <h3 class="fw-bold text-center fs-2">Our Facilities</h3>
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-md-6 text-center pb-2">
+            Experience swimming excellence with our top-tier facilities at Blue Ocean Club. From Olympic Size Pool to Sauna Room, we provide everything you need for a rewarding "Blue Ocean" journey.
+        </div>
+        </div>
+        
+
+    
+    <div class="container">
+      <div class="row justify-content-center grid gap-5">
+        <div class="g-4 col-5">
           <div class="text">
             <img src="image/f1.png" alt="Olympic Sized Swimming Pool">
-            <h4 class="a">Olympic Sized Swimming Pool</h4>
-                <p>Our Olympic Sized Swimming Pool offers the perfect environment for swimmers of all levels, from beginners to seasoned athletes. With its spacious dimensions and crystal-clear water, our pool provides ample space for training, fitness, and competitive swimming.</p>
+            <h4 class="a fs-4 fw-bold text-center">Olympic Sized Swimming Pool</h4>
+                <p class="fs-6 text-body-secondary">Our Olympic Sized Swimming Pool offers the perfect environment for swimmers of all levels, from beginners to seasoned athletes. With its spacious dimensions and crystal-clear water, our pool provides ample space for training, fitness, and competitive swimming.</p>
           </div>
         </div>
 
-        <div class="g-4 col-9 col-md-4">
+        <div class="g-4  col-5 ">
           <div class="text">
             <img src="image/f2.png" alt="">
-            <h4 class="a">Children Swimming Pool</h4>
-                <p> It's a safe and fun spot for kids to splash and play. With shallow waters and colorful surroundings, it's perfect for little ones to enjoy while building water confidence. Lifeguards are always on hand for added safety. Come join the fun!</p>
+            <h4 class="a fs-4 fw-bold text-center">Children Swimming Pool</h4>
+                <p class="fs-6 text-body-secondary"> It's a safe and fun spot for kids to splash and play. With shallow waters and colorful surroundings, it's perfect for little ones to enjoy while building water confidence. Lifeguards are always on hand for added safety. Come join the fun!</p>
           </div>
         </div>
 
-        <div class="g-4 col-9 col-md-4">
+        <div class="g-4 col-5">
           <div class="text">
             <img src="image/f3.png" alt="">
-            <h4 class="a">Blue Ocean Canteen</h4>
-                <p>Welcome to our Swimming Club Canteen! Refuel and refresh with a variety of snacks and beverages. Whether you're craving a quick bite or a refreshing drink, our canteen has something for everyone. Enjoy delicious treats in between laps or catch up with friends after a swim. Dive in and satisfy your cravings!</p>
+            <h4 class="a fs-4 fw-bold text-center">Blue Ocean Canteen</h4>
+                <p class="fs-6 text-body-secondary">Welcome to our Swimming Club Canteen! Refuel and refresh with a variety of snacks and beverages. Whether you're craving a quick bite or a refreshing drink, our canteen has something for everyone. Enjoy delicious treats in between laps or catch up with friends after a swim. Dive in and satisfy your cravings!</p>
           </div>
         </div>
 
-        <div class="g-4 col-9 col-md-4">
+        <div class="g-4 col-5">
           <div class="text">
             <img src="image/f4.png" alt="">
-            <h4 class="a">Hot & Cold Shower Room</h4>
-                <p>Step into our refreshing hot and cold shower rooms at the Swimming Club. After an invigorating swim, indulge in a revitalizing shower experience. Whether you prefer a warm embrace or a cool blast, our facilities ensure you leave feeling refreshed and rejuvenated. Wash away the day's stresses and emerge feeling renewed, ready to dive back into the pool or head out with a renewed sense of energy.</p>
+            <h4 class="a fs-4 fw-bold text-center">Hot & Cold Shower Room</h4>
+                <p class="fs-6 text-body-secondary">Step into our refreshing hot and cold shower rooms at the Swimming Club. After an invigorating swim, indulge in a revitalizing shower experience. Whether you prefer a warm embrace or a cool blast, our facilities ensure you leave feeling refreshed and rejuvenated. Wash away the day's stresses and emerge feeling renewed, ready to dive back into the pool or head out with a renewed sense of energy.</p>
           </div>
         </div>
 
-        <div class="g-4 col-9 col-md-4">
+        <div class="g-4 col-5">
           <div class="text">
             <img src="image/f5.png" alt="">
-            <h4 class="a">Blue Ocean Sauna</h4>
-                <p> Unwind and soothe your body and mind in our luxurious sauna at the Swimming Club. Step into a tranquil oasis where the heat melts away tension, leaving you feeling relaxed and rejuvenated. Let the gentle warmth envelop you as you escape the hustle and bustle of the day. With its calming ambiance and health benefits, our sauna is the perfect retreat for ultimate relaxation and wellness.</p>
+            <h4 class="a fs-4 fw-bold text-center">Blue Ocean Sauna</h4>
+                <p class="fs-6 text-body-secondary"> Unwind and soothe your body and mind in our luxurious sauna at the Swimming Club. Step into a tranquil oasis where the heat melts away tension, leaving you feeling relaxed and rejuvenated. Let the gentle warmth envelop you as you escape the hustle and bustle of the day. With its calming ambiance and health benefits, our sauna is the perfect retreat for ultimate relaxation and wellness.</p>
           </div>
         </div>
 
-        <div class="g-4 col-9 col-md-4">
+        <div class="g-4 col-5">
           <div class="text">
             <img src="image/f6.png" alt="">
-            <h4 class="a">Blue Ocean Gym Room</h4>
-                <p>Get ready to elevate your fitness game in our state-of-the-art gym room. Whether you're a beginner or a fitness enthusiast, our gym offers a diverse range of equipment to cater to your workout needs. From cardio machines to strength training equipment, we've got everything you need to achieve your fitness goals. With a supportive environment and expert guidance, our gym is your go-to destination for a healthier, stronger you.</p>
+            <h4 class="a fs-4 fw-bold text-center">Blue Ocean Gym Room</h4>
+                <p class="fs-6 text-body-secondary">Get ready to elevate your fitness game in our state-of-the-art gym room. Whether you're a beginner or a fitness enthusiast, our gym offers a diverse range of equipment to cater to your workout needs. From cardio machines to strength training equipment, we've got everything you need to achieve your fitness goals. With a supportive environment and expert guidance, our gym is your go-to destination for a healthier, stronger you.</p>
           </div>
         </div>
 
