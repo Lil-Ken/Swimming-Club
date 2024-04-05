@@ -73,7 +73,7 @@
       <div class="container mb-5">
         <div class="row d-flex justify-content-center align-items-center h-100">
           <div class="col-lg-12">
-            <div class="card text-bg-dark bg-gradient" style="border-radius: 25px;">
+            <div class="card text-bg-light bg-gradient" style="border-radius: 25px;">
               <div class="card-body px-2 py-4">
                 <div class="row justify-content-center align-items-center">
                   <h3 class="text-center h1 fw-bold mb-4 mx-1 mx-md-4">REGISTER</h3>
@@ -83,7 +83,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-user fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0 text-muted">
-                            <input type="text" id="name" class="form-control border-5 border-0 border-bottom border-primary pb-1" placeholder="your name" required/>
+                            <input type="text" id="name" class="form-control border-5 border-0 border-bottom border-dark pb-1" placeholder="your name" required/>
                             <label for="name">Full Name</label>
                           </div>
                         </div>
@@ -91,7 +91,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-lock fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0 text-muted">
-                            <input type="password" id="password" class="form-control border-5 border-0 border-bottom border-primary pb-1" placeholder="password" required/>
+                            <input type="password" id="password" class="form-control border-5 border-0 border-bottom border-dark pb-1" placeholder="password" required/>
                             <label class="form-label" for="password">Password</label>
                           </div>
                         </div>
@@ -100,9 +100,9 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-phone fa-lg me-3 fa-fw"></i>
                           <div class="flex-fill mb-0 text-muted input-group">
-                            <input type="text" placeholder="+60" class="form-control border-5 border-0 border-bottom border-primary pb-1" disabled>
+                            <input type="text" placeholder="+60" class="form-control border-5 border-0 border-bottom border-dark pb-1 text-center" disabled>
                             <div class="form-floating flex-fill mb-0 text-muted w-75">
-                              <input type="text" class="form-control border-5 border-0 border-bottom border-primary pb-1" id="phone" name="phone" placeholder="Phone Number" required>
+                              <input type="text" class="form-control border-5 border-0 border-bottom border-dark pb-1" id="phone" name="phone" placeholder="Phone Number" required>
                               <label for="phone" class="form-label">Phone Number</label>
                             </div>
                           </div>
@@ -112,21 +112,21 @@
                         <div class="d-flex flex-row align-items-center mb-4 mt-4">
                           <div class="form-check form-check-inline flex-fill mb-0 ms-3">
                             
-                            <input class="form-check-input" type="radio" name="gender" id="gender1"
+                            <input class="form-check-input border-dark" type="radio" name="gender" id="gender1"
                               value="option2" required/>
                             <label class="form-check-label" for="gender1"><i class="fa-solid fa-mars fa-lg "></i> Male</label>
                           </div>
   
                           <div class="form-check form-check-inline flex-fill mb-0">
                           
-                            <input class="form-check-input" type="radio" name="gender" id="gender2"
+                            <input class="form-check-input border-dark" type="radio" name="gender" id="gender2"
                               value="option1" required/>
                             <label class="form-check-label" for="gender2"><i class="fa-solid fa-venus fa-lg "></i> Female</label>
                           </div>
         
                           <div class="form-check form-check-inline flex-fill mb-0">
                           
-                            <input class="form-check-input" type="radio" name="gender" id="gender3"
+                            <input class="form-check-input border-dark" type="radio" name="gender" id="gender3"
                               value="option3" required/>
                             <label class="form-check-label" for="gender3"><i class="fa-solid fa-venus-mars fa-lg "></i> Other</label>
                           </div>
@@ -139,7 +139,7 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-envelope fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0 text-muted">
-                            <input type="email" id="email" class="form-control border-5 border-0 border-bottom border-primary pb-1" placeholder="email" required/>
+                            <input type="email" id="email" class="form-control border-5 border-0 border-bottom border-dark pb-1" placeholder="email" required/>
                             <label class="form-label" for="email">Email</label>
                           </div>
                         </div>
@@ -147,15 +147,15 @@
                         <div class="d-flex flex-row align-items-center mb-4">
                           <i class="fas fa-key fa-lg me-3 fa-fw"></i>
                           <div class="form-floating flex-fill mb-0 text-muted">
-                            <input type="password" id="confirm-password" class="form-control border-5 border-0 border-bottom border-primary pb-1" placeholder="password" required/>
+                            <input type="password" id="confirm-password" class="form-control border-5 border-0 border-bottom border-dark pb-1" placeholder="password" required/>
                             <label class="form-label" for="confirm-password">Comfirm your password</label>
                           </div>
                         </div>
 
-                        <div class="d-flex flex-row align-items-center">
+                        <div class="d-flex flex-row align-items-center" style="height: 57px;">
                           <i class="fa-solid fa-user fa-lg me-3 fa-fw"></i>
                           <label class="visually-hidden" for="package">Preference</label>
-                          <select class="form-select text-muted form-select-lg py-2 border-5 border-0 border-bottom border-primary" id="package" required>
+                          <select class="form-select text-muted form-select-lg py-2 border-5 border-0 border-bottom border-dark" id="package" required>
                             <option selected>Choose a Member Pakage</option>
                             <option value="1">Basic</option>
                             <option value="2">Pro</option>
@@ -163,7 +163,7 @@
                           </select>
                         </div>
                         
-                        <a href="pricing.html" class="mb-5"><i class="fa-solid fa-circle-info fa-sm ms-5 me-2 text-light"></i>view details</a>
+                        <a href="pricing.html" class="mb-5"><i class="fa-solid fa-circle-info fa-sm ms-5 me-2 text-dark"></i>view details</a>
 
                       </div>
                       <div class="form-check d-flex justify-content-center my-3">
@@ -174,13 +174,13 @@
                       </div>
     
                       <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
-                        <button type="submit" class="btn btn-primary btn-lg">Pay and Register</button>
+                        <button type="submit" class="btn btn-info btn-lg">Pay and Register</button>
                       </div>
                     </div>
                   </form>
                   
                 </div>
-                <p class="text-center mt-4 mb-0 text-light">Have already an account? <a href="member.html"
+                <p class="text-center mt-4 mb-0 text-dark">Have already an account? <a href="member.html"
                   class="link fw-bold"><u>Login here</u></a></p>
               </div>
             </div>
