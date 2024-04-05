@@ -23,6 +23,14 @@ body {
   background-color: #E0E7FF;
 }
 
+ul.dropdown-menu,
+a.dropdown-item:hover{
+  background-color: #0F6A8088;
+}
+
+ul.dropdown-menu{
+  opacity: 75;
+}
 
 .adjust-margin{
   margin-bottom: 10px;
@@ -160,4 +168,3 @@ body {
   }
 
 }
-
