@@ -13,7 +13,7 @@
     <link href="css/style.css" rel="stylesheet">
     <style type="text/css">
       .booking-section {
-  			background-color: #ffffffba;
+  			background-color: #9bdbd4ba;
   			padding: 20px;
 			  margin: 10%;
   			border-radius: 15px;
@@ -92,14 +92,17 @@
                   <h2 class="mb-4 text-center">Book Now</h2>
                   <form id="bookingForm" action="submit_booking.php" method="POST">
                       <div class="mb-3">
+                        <i class="bi bi-person-fill"></i>
                           <label for="name" class="form-label">Name</label>
                           <input type="text" id="name" name="name" class="form-control" required>
                       </div>
                       <div class="mb-3">
-                          <label for="phone" class="form-label">Phone Number</label>
+                        <i class="bi bi-telephone-fill"></i>
+                          <label for="phone" class="form-label">Phone Number</label>                          
                           <input type="tel" id="phone" name="phone" class="form-control" required>
                       </div>
                       <div class="mb-3">
+                        <i class="bi bi-envelope-fill"></i>
                           <label for="email" class="form-label">Email Address</label>
                           <input type="email" id="email" name="email" class="form-control" required>
                       </div>
@@ -113,6 +116,10 @@
                       <div class="mb-3">
                           <label for="date" class="form-label">Date</label>
                           <input type="date" id="date" name="date" class="form-control" min="" required>
+                      </div>
+                      <div class="form-group">
+                        <label for="time">Time</label>
+                        <input type="time" class="form-control" id="time" required>
                       </div>
                       <div class="mb-3">
                           <label for="participants" class="form-label">Number of Participants</label>
