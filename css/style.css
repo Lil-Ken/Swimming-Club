@@ -25,11 +25,7 @@ body {
 
 ul.dropdown-menu,
 a.dropdown-item:hover{
-  background-color: #0F6A8088;
-}
-
-ul.dropdown-menu{
-  opacity: 75;
+  background-color: #0F6A80CC;
 }
 
 .adjust-margin{
