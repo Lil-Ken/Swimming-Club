@@ -12,19 +12,6 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
     <style type="text/css">
-      .title{
-      background-color: #2eaac9;
-      padding: 20%;
-      color: rgba(33, 49, 185, 0.824); 
-      }
-      .text img {
-        width: 100%; 
-        height: 200px; 
-        object-fit: cover;      
-      }
-      .a{
-        text-align: left;
-      }
       .booking-section {
   			background-color: #adadad61;
   			padding: 20px;
@@ -34,26 +21,8 @@
 		  }
       .booking-section:hover {
         background-color: rgba(198, 201, 204, 0.897);
-        box-shadow: 0px 0px 10px rgba(219, 146, 146, 0.5);
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
         transform: scale(1.01);
-      }
-
-      .form-group {
-        margin-right: 15px;
-      }
-
-      .form-group label {
-        display: block;
-        font-weight: bold;
-        margin-bottom: 5px;
-      }
-
-      .form-group input,
-      .form-group select {
-        width: 100%;
-        padding: 8px;
-        border: 1px solid #ccc;
-        border-radius: 4px;
       }
 
       .btn {
@@ -126,40 +95,47 @@
       </div>
     </nav>
 
-    <div class="booking-section">
-      <h2>Book Now</h2>
-      <form id="bookingForm" action="submit_booking.php" method="POST">
-        <div class="form-group">
-          <label for="name">Name:</label>
-          <input type="text" id="name" name="name" required>
-        </div>
-		  <div class="form-group">
-          <label for="phone">Phone no:</label>
-          <input type="phone" id="phone" name="phone" required>
-        </div> 
-        <div class="form-group">
-          <label for="email">Email:</label>
-          <input type="email" id="email" name="email" required>
-        </div>  
-  
-        <div class="form-group">
-          <label for="event">Select Facilities:</label>
-          <select id="event" name="event" required>
-            <option value="option1">Olympic Sized Swimming Pool</option>
-            <option value="option2">Children Swimming Pool</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="date">Date:</label>
-          <input type="date" id="date" name="date" min="" required>
-        </div>
-        <div class="form-group">
-          <label for="participants">Number of Participants:</label>
-          <input type="number" id="participants" name="participants" min="1" value="1" required>
-        </div>
-        <button type="submit" class="btn">Book Now</button>
-      </form>
-    </div>
+    <div class="container">
+      <div class="row justify-content-center">
+          <div class="col-lg-6">
+              <div class="booking-section">
+                  <h2 class="mb-4 text-center">Book Now</h2>
+                  <form id="bookingForm" action="submit_booking.php" method="POST">
+                      <div class="mb-3">
+                          <label for="name" class="form-label">Name</label>
+                          <input type="text" id="name" name="name" class="form-control" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="phone" class="form-label">Phone Number</label>
+                          <input type="tel" id="phone" name="phone" class="form-control" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="email" class="form-label">Email Address</label>
+                          <input type="email" id="email" name="email" class="form-control" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="event" class="form-label">Select Swimming Pool</label>
+                          <select id="event" name="event" class="form-select" required>
+                              <option value="option1">Olympic Sized Swimming Pool</option>
+                              <option value="option2">Children Swimming Pool</option>
+                          </select>
+                      </div>
+                      <div class="mb-3">
+                          <label for="date" class="form-label">Date</label>
+                          <input type="date" id="date" name="date" class="form-control" min="" required>
+                      </div>
+                      <div class="mb-3">
+                          <label for="participants" class="form-label">Number of Participants</label>
+                          <input type="number" id="participants" name="participants" class="form-control" min="1" max="" value="1" required>
+                      </div>
+                      <div class="text-center">
+                          <button type="submit" class="btn btn-primary">Book Now</button>
+                      </div>
+                  </form>
+              </div>
+          </div>
+      </div>
+  </div>
 
     <footer class="text-light pt-5 pb-4">
         <div class="container text-center text-md-right">
