@@ -166,9 +166,8 @@ td {
   <form class="d-flex ms-auto mb-3" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
     <button class="btn btn-outline-light" type="submit">Search</button>
-  <table>
-    <tbody id="eventsTable">
-    <tr>
+   <table class="table" id="eventsTable">
+   <tr class="event-row">
       <td>
         <div class="content">
           <img src="image/event1.avif" alt="Swimming Competitions" class="image">
@@ -198,7 +197,7 @@ td {
       </td>
     </tr>
     
-    <tr>
+    <tr class="event-row">
       <td>
         <div class="content">
           <img src="image/event3.jpg" alt="Holiday Themed Events" class="image">
@@ -228,7 +227,7 @@ td {
        
       </td>
     </tr>
-    <tr>
+   <tr class="event-row">
       <td>
         <div class="content">
           <img src="image/event5.jpg" alt="Outdoor Swimming Activities" class="image">
@@ -258,61 +257,72 @@ td {
       
       </td>
     </tr>
-    </tbody>
   </table>
     
- <script>
-     var searchInput = document.getElementById("searchInput");
-  var eventsTable = document.getElementById('eventsTable');
-  var originalEventsHTML = eventsTable.innerHTML;
+<script>
+   var searchInput = document.getElementById("searchInput");
+var eventsTable = document.getElementById('eventsTable');
+var originalEventsHTML = eventsTable.innerHTML;
 
-  // Add an input event listener to the search input
-  searchInput.addEventListener("input", function() {
-    if (searchInput.value.trim() === "") {
-      // If search input is empty, remove all highlights and restore original events
-      var titles = document.querySelectorAll(".h2-text");
-      titles.forEach(function(title) {
-        removeHighlight(title);
-      });
-      eventsTable.innerHTML = originalEventsHTML;
+
+var originalEventsHTML = eventsTable.innerHTML;
+
+
+searchInput.addEventListener("input", function() {
+  if (searchInput.value.trim() === "") {
+    
+    var titles = document.querySelectorAll(".h2-text");
+    titles.forEach(function(title) {
+      removeHighlight(title);
+    });
+    eventsTable.innerHTML = originalEventsHTML;
+  }
+});
+
+
+document.querySelector("form").addEventListener("submit", function(event) {
+  event.preventDefault(); 
+
+  
+  searchEvents();
+});
+
+function searchEvents() {
+  var searchKeyword = searchInput.value.trim().toLowerCase();
+  var eventRows = document.querySelectorAll('.content');
+
+  eventRows.forEach(function(row) {
+    var eventTitle = row.querySelector('.h2-text').textContent.toLowerCase();
+    if (eventTitle.includes(searchKeyword)) {
+      row.parentElement.style.display = '';
+      highlightKeyword(row.querySelector('.h2-text'), searchKeyword);
+    } else {
+      row.parentElement.style.display = 'none';
     }
   });
+}
 
-  function searchEvents() {
-    var searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
-    var eventRows = document.querySelectorAll('.content');
+function highlightKeyword(element, keyword) {
+  var innerHTML = element.innerHTML;
+  var index = innerHTML.toLowerCase().indexOf(keyword);
+  if (index >= 0) {
+    
+    removeHighlight(element);
 
-    eventRows.forEach(function(row) {
-      var eventTitle = row.querySelector('.h2-text').textContent.toLowerCase();
-      if (eventTitle.includes(searchKeyword)) {
-        row.parentElement.style.display = '';
-        highlightKeyword(row.querySelector('.h2-text'), searchKeyword);
-      } else {
-        row.parentElement.style.display = 'none';
-      }
-    });
+    
+    innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
+    element.innerHTML = innerHTML;
   }
+}
 
-  function highlightKeyword(element, keyword) {
-    var innerHTML = element.innerHTML;
-    var index = innerHTML.toLowerCase().indexOf(keyword);
-    if (index >= 0) {
-      // Remove existing highlights first
-      removeHighlight(element);
+function removeHighlight(element) {
+  
+  var highlightSpans = element.querySelectorAll(".highlight");
+  highlightSpans.forEach(function(span) {
+    span.outerHTML = span.innerHTML; // 使用 innerHTML 替换 span 以移除它
+  });
+}
 
-      // Add new highlight
-      innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
-      element.innerHTML = innerHTML;
-    }
-  }
-
-  function removeHighlight(element) {
-    // Remove any existing highlight spans
-    var highlightSpans = element.querySelectorAll(".highlight");
-    highlightSpans.forEach(function(span) {
-      span.outerHTML = span.innerHTML; // Replace the span with its innerHTML to remove it
-    });
-  }
   </script>
       
 
