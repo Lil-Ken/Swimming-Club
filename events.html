@@ -32,6 +32,7 @@
   
 }
 
+
 .content:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
   transform: scale(1.05);
@@ -88,6 +89,7 @@ td {
   text-align: center; 
 }
       
+/* 添加样式以确保一行两个事件 */
 .event-row {
     display: flex;
     flex-wrap: wrap;
@@ -96,7 +98,7 @@ td {
   }
 
   .event-row > td {
-    width: calc(50% - 10px);
+    width: calc(50% - 10px); 
     margin-bottom: 20px; 
     box-sizing: border-box; 
     padding-right: 10px; 
@@ -185,9 +187,9 @@ td {
     <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event1.avif" alt="Swimming Competitions" class="image">
+          <img src="event1.avif" alt="Swimming Competitions" class="image">
           <div class="text">
-            <h2 class="h2-text">Swimming Competition</h2>
+            <h2 class="h2-text">Swimming Competitions</h2>
             <p>Blue Ocean Swimming Club competitions are a great opportunity to showcase your swimming skills and challenge yourself. We host a variety of different types of competitions including freestyle, breaststroke, backstroke and more to suit participants of all ages and skill levels.</p>
             <p>RM20</p>
             <button class="purchase-button" onclick="window.location.href='purchase_tickets.html'">Purchase Tickets</button>
@@ -198,7 +200,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event2.jpeg" alt="Technical Lectures" class="image">
+          <img src="event2.jpeg" alt="Technical Lectures" class="image">
           <div class="text">
             <h2 class="h2-text">Technical Lectures</h2>
             <p>Blue Ocean Swimming Club will invite professional coaches and senior swimmers to share their experiences and techniques. Whether you are a beginner or an experienced player, these lectures will provide you with valuable knowledge and insights. This knowledge can help you improve your swimming skills.</p>
@@ -215,7 +217,7 @@ td {
     <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event3.jpg" alt="Holiday Themed Events" class="image">
+          <img src="event3.jpg" alt="Holiday Themed Events" class="image">
           <div class="text">
             <h2 class="h2-text">Holiday Themed Events</h2>
             <p>Blue Ocean Swimming Club has launched holiday themed events. Whether it's a Christmas swim party or a Halloween themed competition, we will bring you a unique experience.</p>
@@ -229,7 +231,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event4.jpg" alt="Social Events" class="image">
+          <img src="event4.jpg" alt="Social Events" class="image">
           <div class="text">
             <h2 class="h2-text">Social Events</h2>
             <p>Blue Ocean Swimming Club will hold social activities among members. You are welcome to attend our dinner parties, bonfires and swimming parties to exchange swimming experiences with other members and make new friends.</p>
@@ -245,7 +247,7 @@ td {
     <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event5.jpg" alt="Outdoor Swimming Activities" class="image">
+          <img src="event5.jpg" alt="Outdoor Swimming Activities" class="image">
           <div class="text">
             <h2 class="h2-text">Outdoor Swimming Activities</h2>
             <p>Blue Ocean Swimming Club will organize various open water swimming activities, diving, snorkeling and water sports competitions to allow members to enjoy the beauty of nature.</p>
@@ -259,7 +261,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event6.jpg" alt="Training Camps and Workshops" class="image">
+          <img src="event6.jpg" alt="Training Camps and Workshops" class="image">
           <div class="text">
             <h2 class="h2-text">Training Camps and Workshops</h2>
             <p>Blue Ocean Swimming Club hosts training camps and technical workshops. We tailor activities for different skill levels, whether you are a beginner or an experienced player, our activities will provide you with valuable learning opportunities.</p>
@@ -276,7 +278,7 @@ td {
   </table>
     
   
- <script>
+  <script>
      var searchInput = document.getElementById("searchInput");
     var eventsTable = document.getElementById('eventsTable');
     var originalEventsHTML = eventsTable.innerHTML;
@@ -310,11 +312,10 @@ td {
             }
         });
 
-        
+       
         var visibleEvents = document.querySelectorAll('.content:not([style*="display: none"])');
         var rows = document.querySelectorAll('.event-row');
 
-        
         var colIndex = 0;
         visibleEvents.forEach(function(event) {
             rows[colIndex % 2].appendChild(event.parentElement);
