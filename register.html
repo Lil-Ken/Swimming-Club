@@ -14,7 +14,7 @@
     <link href="css/style.css" rel="stylesheet">
   </head>
   <body>
-    <!-- navbar -->
+   <!-- navbar -->
     <nav class="navbar navbar-expand-lg sticky-top bg-gradient py-sm-2 py-lg-3 fw-bold " data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand fs-4" href="index.html">
@@ -27,8 +27,13 @@
 
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="#">Home</a>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-current="page" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Home</a>
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
+                <li><a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a></li>
+                <li><a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a></li>
+                <li>
+              </ul>
             </li>
             <li class="nav-item">
               <a class="nav-link " href="events.html">Events</a>
@@ -45,12 +50,6 @@
             <li class="nav-item">
               <a class="nav-link" href="pricing.html">Member Package</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a>
-            </li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">
@@ -61,7 +60,7 @@
                 <li>
               </ul>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown active">
               <a href="register.html" class="nav-link"><span><i class="bi bi-box-arrow-in-right"></i></span> Register</a>
             </li>
           </ul>
