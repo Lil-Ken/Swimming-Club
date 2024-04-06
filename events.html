@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <link href="css/style.css" rel="stylesheet">
 
- <style type="text/css">
+   <style type="text/css">
       .title {
         padding: 2%;
       }
@@ -21,7 +21,7 @@
       .content {
   display: flex;
   flex-direction: column;
-  align-items: center; 
+  align-items: stretch;
   text-align: center; 
   padding: 20px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -29,12 +29,14 @@
   overflow: hidden;
   margin: 40px; 
   min-height: 920px
+  
 }
 
-   .content:hover {
+.content:hover {
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3); 
   transform: scale(1.05);
 }
+
       .image {
         width: 80%;
         height: 70%; 
@@ -46,7 +48,7 @@
         box-shadow: none;
         transition: all 0.3s ease;
         overflow: hidden;
-        font-size: 18px;
+        font-size: 20px;
         text-align: left; 
         font-family: Arial, Helvetica, sans-serif;
         line-height: 1.5;
@@ -60,7 +62,7 @@
 
 .date{
   font-size: 20px;
-   margin-top: 35px
+  margin-top: 35px;
 }
 
       
@@ -82,11 +84,12 @@
 }
 
 td {
-  padding: 20px;
+  padding: 0;
   text-align: center; 
-  
 }
       
+
+
       .purchase-button {
         background-color: #007bff;
         color: white;
@@ -108,7 +111,7 @@ td {
   </head>
 
   <body>
-   <!-- navbar -->
+    <!-- navbar -->
     <nav class="navbar navbar-expand-lg sticky-top bg-gradient py-sm-2 py-lg-3 fw-bold " data-bs-theme="dark">
       <div class="container-fluid">
         <a class="navbar-brand fs-4" href="index.html">
@@ -120,35 +123,33 @@ td {
         </button>
 
         <div class="collapse navbar-collapse" id="navbar">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" aria-current="page" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Home</a>
-              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
-                <li><a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a></li>
-                <li><a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a></li>
-                <li>
-              </ul>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link active" href="events.html">Events</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="facilities.html">Facilities</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="booknow.html">Book Now</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="coach.html">Coaches</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="pricing.html">Member Package</a>
-            </li>
-          </ul>
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                  <a class="nav-link" aria-current="page" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link active " href="events.html">Events</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="facilities.html">Facilities</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="booknow.html">Book Now</a>
+                </li>
+                <li class="nav-item">
+                <a class="nav-link" href="coach.html">Coaches</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a>
+                </li>
+            </ul>
           <ul class="nav navbar-nav navbar-right">
             <li class="nav-item dropdown">
               <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
-              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster">
                 <li><a class="dropdown-item" href="admin.html">Administrator</a></li>
                 <li><a class="dropdown-item" href="member.html">Member</a></li>
                 <li>
@@ -163,14 +164,16 @@ td {
     </nav>
 
    <h1 class="title"><center>Events</center></h1>
-  <form class="d-flex ms-auto mb-3" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
+   <form class="d-flex ms-auto mb-3" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
     <button class="btn btn-outline-light" type="submit">Search</button>
-    <table class="table" id="eventsTable">
-   <tr class="event-row">
+  </form>
+  <table class="table" id="eventsTable">
+   
+    <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event1.avif" alt="Swimming Competitions" class="image">
+          <img src="event1.avif" alt="Swimming Competitions" class="image">
           <div class="text">
             <h2 class="h2-text">Swimming Competitions</h2>
             <p>Blue Ocean Swimming Club competitions are a great opportunity to showcase your swimming skills and challenge yourself. We host a variety of different types of competitions including freestyle, breaststroke, backstroke and more to suit participants of all ages and skill levels.</p>
@@ -183,7 +186,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event2.jpeg" alt="Technical Lectures" class="image">
+          <img src="event2.jpeg" alt="Technical Lectures" class="image">
           <div class="text">
             <h2 class="h2-text">Technical Lectures</h2>
             <p>Blue Ocean Swimming Club will invite professional coaches and senior swimmers to share their experiences and techniques. Whether you are a beginner or an experienced player, these lectures will provide you with valuable knowledge and insights. This knowledge can help you improve your swimming skills.</p>
@@ -200,7 +203,7 @@ td {
     <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event3.jpg" alt="Holiday Themed Events" class="image">
+          <img src="event3.jpg" alt="Holiday Themed Events" class="image">
           <div class="text">
             <h2 class="h2-text">Holiday Themed Events</h2>
             <p>Blue Ocean Swimming Club has launched holiday themed events. Whether it's a Christmas swim party or a Halloween themed competition, we will bring you a unique experience.</p>
@@ -214,7 +217,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event4.jpg" alt="Social Events" class="image">
+          <img src="event4.jpg" alt="Social Events" class="image">
           <div class="text">
             <h2 class="h2-text">Social Events</h2>
             <p>Blue Ocean Swimming Club will hold social activities among members. You are welcome to attend our dinner parties, bonfires and swimming parties to exchange swimming experiences with other members and make new friends.</p>
@@ -227,10 +230,10 @@ td {
        
       </td>
     </tr>
-   <tr class="event-row">
+    <tr class="event-row">
       <td>
         <div class="content">
-          <img src="image/event5.jpg" alt="Outdoor Swimming Activities" class="image">
+          <img src="event5.jpg" alt="Outdoor Swimming Activities" class="image">
           <div class="text">
             <h2 class="h2-text">Outdoor Swimming Activities</h2>
             <p>Blue Ocean Swimming Club will organize various open water swimming activities, diving, snorkeling and water sports competitions to allow members to enjoy the beauty of nature.</p>
@@ -244,7 +247,7 @@ td {
       </td>
       <td>
         <div class="content">
-          <img src="image/event6.jpg" alt="Training Camps and Workshops" class="image">
+          <img src="event6.jpg" alt="Training Camps and Workshops" class="image">
           <div class="text">
             <h2 class="h2-text">Training Camps and Workshops</h2>
             <p>Blue Ocean Swimming Club hosts training camps and technical workshops. We tailor activities for different skill levels, whether you are a beginner or an experienced player, our activities will provide you with valuable learning opportunities.</p>
@@ -257,9 +260,11 @@ td {
       
       </td>
     </tr>
+
   </table>
     
-<script>
+  
+  <script>
    var searchInput = document.getElementById("searchInput");
 var eventsTable = document.getElementById('eventsTable');
 var originalEventsHTML = eventsTable.innerHTML;
@@ -283,7 +288,7 @@ searchInput.addEventListener("input", function() {
 document.querySelector("form").addEventListener("submit", function(event) {
   event.preventDefault(); 
 
-  
+
   searchEvents();
 });
 
@@ -309,17 +314,16 @@ function highlightKeyword(element, keyword) {
     
     removeHighlight(element);
 
-    
+  
     innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
     element.innerHTML = innerHTML;
   }
 }
 
 function removeHighlight(element) {
-  
   var highlightSpans = element.querySelectorAll(".highlight");
   highlightSpans.forEach(function(span) {
-    span.outerHTML = span.innerHTML; // 使用 innerHTML 替换 span 以移除它
+    span.outerHTML = span.innerHTML;
   });
 }
 
