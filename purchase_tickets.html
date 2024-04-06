@@ -42,12 +42,17 @@
           margin-bottom: 5px;
         }
         
-        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
         .form-group select {
           width: 100%;
           padding: 8px;
           border: 1px solid #ccc;
           border-radius: 4px;
+        }
+
+        .error-message {
+            color: red;
         }
         
         .btn {
@@ -62,7 +67,7 @@
         .btn:hover {
           background-color: #0b475a;
         }
-        </style>
+    </style>
   </head>
 
   <body>
@@ -126,11 +131,13 @@
             <div class="form-group">
                 <label for="fullName">Full Name:</label>
                 <input type="text" id="fullName" name="fullName" required>
+                <div id="fullNameError" class="error-message"></div>
             </div>
         
             <div class="form-group">
                 <label for="email">Email:</label>
                 <input type="email" id="email" name="email" required>
+                <div id="emailError" class="error-message"></div>
             </div>
 
         <div class="form-group">
@@ -156,7 +163,8 @@
             <option value="paypal">PayPal</option>
         </select><br><br>
 
-       <button type="button" onclick="redirectToPaymentPage()" class="btn">Proceed to Payment</button>
+        <button type="button" onclick="purchaseTickets()" class="btn">Proceed to Payment</button>
+
     </div>
     </form>
 
@@ -164,35 +172,37 @@
     <div id="orderDetails" style="display: none;"></div>
 
     <script>
-        function purchaseTickets() {
-            var selectedEvent = document.getElementById("eventSelect").value;
-            var ticketQuantity = parseInt(document.getElementById("ticketQuantity").value);
-            var totalPrice = calculateTotalPrice(selectedEvent, ticketQuantity);
-            var paymentMethod = document.getElementById("paymentMethod").value;
-            document.getElementById("totalPrice").innerHTML = "Total Price: RM" + totalPrice;
-            document.getElementById("orderDetails").innerHTML = "Event: " + selectedEvent + "<br>" +
-                                                                "Ticket Quantity: " + ticketQuantity + "<br>" +
-                                                                "Payment Method: " + paymentMethod + "<br>";
-            document.getElementById("orderDetails").style.display = "block";
+      function purchaseTickets() {
+        var fullName = document.getElementById("fullName").value;
+        var email = document.getElementById("email").value;
+        var fullNameError = document.getElementById("fullNameError");
+        var emailError = document.getElementById("emailError");
+        var isValid = true;
+
+        // Reset error messages
+        fullNameError.innerHTML = "";
+        emailError.innerHTML = "";
+
+        // Check if full name is empty
+        if (fullName.trim() === "") {
+            fullNameError.innerHTML = "Please enter your full name";
+            isValid = false;
         }
 
-        function calculateTotalPrice(event, quantity) {
-            var ticketPrices = {
-                "swimming": 20,
-                "lectures": 30,
-                "Holiday Themed Events": 32,
-                "Social Events": 70,
-                "Outdoor Swimming Activities": 22,
-                "Training Camps and Workshops": 66,
-            };
-            var pricePerTicket = ticketPrices[event];
-            var totalPrice = pricePerTicket * quantity;
-            return totalPrice;
+        // Check if email is empty
+        if (email.trim() === "") {
+            emailError.innerHTML = "Please enter your email";
+            isValid = false;
         }
 
-       function redirectToPaymentPage() {
-    window.location.href = "payment.html"; // Redirect to payment page
-}
+        // If any field is invalid, return
+        if (!isValid) {
+            return;
+        }
+
+        // Proceed to payment
+        window.location.href = "payment.html"; // Redirect to payment page
+    }
     </script>
 
     <footer class="text-light pt-5 pb-4">
