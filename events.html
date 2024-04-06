@@ -88,7 +88,19 @@ td {
   text-align: center; 
 }
       
+.event-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
 
+  .event-row > td {
+    width: calc(50% - 10px);
+    margin-bottom: 20px; 
+    box-sizing: border-box; 
+    padding-right: 10px; 
+  }
 
       .purchase-button {
         background-color: #007bff;
@@ -264,70 +276,69 @@ td {
   </table>
     
   
-  <script>
-   var searchInput = document.getElementById("searchInput");
-var eventsTable = document.getElementById('eventsTable');
-var originalEventsHTML = eventsTable.innerHTML;
+ <script>
+     var searchInput = document.getElementById("searchInput");
+    var eventsTable = document.getElementById('eventsTable');
+    var originalEventsHTML = eventsTable.innerHTML;
 
-
-var originalEventsHTML = eventsTable.innerHTML;
-
-
-searchInput.addEventListener("input", function() {
-  if (searchInput.value.trim() === "") {
-    
-    var titles = document.querySelectorAll(".h2-text");
-    titles.forEach(function(title) {
-      removeHighlight(title);
+    searchInput.addEventListener("input", function() {
+      if (searchInput.value.trim() === "") {
+        var titles = document.querySelectorAll(".h2-text");
+        titles.forEach(function(title) {
+          removeHighlight(title);
+        });
+        eventsTable.innerHTML = originalEventsHTML;
+      }
     });
-    eventsTable.innerHTML = originalEventsHTML;
-  }
-});
 
+    document.querySelector("form").addEventListener("submit", function(event) {
+      event.preventDefault();
+      searchEvents();
+    });
 
-document.querySelector("form").addEventListener("submit", function(event) {
-  event.preventDefault(); 
+    function searchEvents() {
+        var input = document.getElementById('searchInput').value.toLowerCase();
+        var events = document.querySelectorAll('.content');
 
+        events.forEach(function(event) {
+            var title = event.querySelector('h2').textContent.toLowerCase();
+            if (title.includes(input)) {
+                event.parentElement.style.display = '';
+                highlightKeyword(event.querySelector('h2'), input);
+            } else {
+                event.parentElement.style.display = 'none';
+            }
+        });
 
-  searchEvents();
-});
+        
+        var visibleEvents = document.querySelectorAll('.content:not([style*="display: none"])');
+        var rows = document.querySelectorAll('.event-row');
 
-function searchEvents() {
-  var searchKeyword = searchInput.value.trim().toLowerCase();
-  var eventRows = document.querySelectorAll('.content');
-
-  eventRows.forEach(function(row) {
-    var eventTitle = row.querySelector('.h2-text').textContent.toLowerCase();
-    if (eventTitle.includes(searchKeyword)) {
-      row.parentElement.style.display = '';
-      highlightKeyword(row.querySelector('.h2-text'), searchKeyword);
-    } else {
-      row.parentElement.style.display = 'none';
+        
+        var colIndex = 0;
+        visibleEvents.forEach(function(event) {
+            rows[colIndex % 2].appendChild(event.parentElement);
+            colIndex++;
+        });
     }
-  });
-}
 
-function highlightKeyword(element, keyword) {
-  var innerHTML = element.innerHTML;
-  var index = innerHTML.toLowerCase().indexOf(keyword);
-  if (index >= 0) {
-    
-    removeHighlight(element);
+    function highlightKeyword(element, keyword) {
+      var innerHTML = element.innerHTML;
+      var index = innerHTML.toLowerCase().indexOf(keyword);
+      if (index >= 0) {
+        removeHighlight(element);
+        innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
+        element.innerHTML = innerHTML;
+      }
+    }
 
-  
-    innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
-    element.innerHTML = innerHTML;
-  }
-}
-
-function removeHighlight(element) {
-  var highlightSpans = element.querySelectorAll(".highlight");
-  highlightSpans.forEach(function(span) {
-    span.outerHTML = span.innerHTML;
-  });
-}
-
-  </script>
+    function removeHighlight(element) {
+      var highlightSpans = element.querySelectorAll(".highlight");
+      highlightSpans.forEach(function(span) {
+        span.outerHTML = span.innerHTML;
+      });
+    }
+</script>
       
 
     <footer class="text-light pt-5 pb-4">
