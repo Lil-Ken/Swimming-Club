@@ -163,11 +163,11 @@ td {
     </nav>
 
    <h1 class="title"><center>Events</center></h1>
-  <form class="d-flex ms-auto" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
+  <form class="d-flex ms-auto mb-3" style="margin-bottom: 20px;" onsubmit="event.preventDefault(); searchEvents();">
     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput">
     <button class="btn btn-outline-light" type="submit">Search</button>
-  </form>
   <table>
+    <tbody id="eventsTable">
     <tr>
       <td>
         <div class="content">
@@ -258,74 +258,61 @@ td {
       
       </td>
     </tr>
+    </tbody>
   </table>
     
-  <script>
-    // Get the search input element
-    var searchInput = document.getElementById("searchInput");
+ <script>
+     var searchInput = document.getElementById("searchInput");
+  var eventsTable = document.getElementById('eventsTable');
+  var originalEventsHTML = eventsTable.innerHTML;
 
-    // Add an input event listener to the search input
-    searchInput.addEventListener("input", function() {
-      if (searchInput.value.trim() === "") {
-        // If search input is empty, remove all highlights
-        var titles = document.querySelectorAll(".h2-text");
-        titles.forEach(function(title) {
-          removeHighlight(title);
-        });
-      }
-    });
-
-    function searchEvents() {
-      // Get the input value in the search box
-      var searchKeyword = searchInput.value.trim().toLowerCase();
-
+  // Add an input event listener to the search input
+  searchInput.addEventListener("input", function() {
+    if (searchInput.value.trim() === "") {
+      // If search input is empty, remove all highlights and restore original events
       var titles = document.querySelectorAll(".h2-text");
-
-      // Remove existing highlights if searchKeyword is empty
-      if (searchKeyword === "") {
-        titles.forEach(function(title) {
-          removeHighlight(title);
-        });
-        return; // Exit function if searchKeyword is empty
-      }
-
-      // Remove existing highlights
       titles.forEach(function(title) {
         removeHighlight(title);
       });
+      eventsTable.innerHTML = originalEventsHTML;
+    }
+  });
 
-      for (var i = 0; i < titles.length; i++) {
-        var titleText = titles[i].textContent.toLowerCase();
-        // If a matching title is found, scroll to the title and highlight the keyword
-        if (titleText.includes(searchKeyword)) {
-          titles[i].scrollIntoView({ behavior: 'smooth', block: 'start' });
-          // Highlight keywords
-          highlightKeyword(titles[i], searchKeyword);
-          break;
-        }
+  function searchEvents() {
+    var searchKeyword = document.getElementById('searchInput').value.trim().toLowerCase();
+    var eventRows = document.querySelectorAll('.content');
+
+    eventRows.forEach(function(row) {
+      var eventTitle = row.querySelector('.h2-text').textContent.toLowerCase();
+      if (eventTitle.includes(searchKeyword)) {
+        row.parentElement.style.display = '';
+        highlightKeyword(row.querySelector('.h2-text'), searchKeyword);
+      } else {
+        row.parentElement.style.display = 'none';
       }
-    }
+    });
+  }
 
-    function highlightKeyword(element, keyword) {
-      var innerHTML = element.innerHTML;
-      var index = innerHTML.toLowerCase().indexOf(keyword);
-      if (index >= 0) {
-        // Remove existing highlights first
-        removeHighlight(element);
+  function highlightKeyword(element, keyword) {
+    var innerHTML = element.innerHTML;
+    var index = innerHTML.toLowerCase().indexOf(keyword);
+    if (index >= 0) {
+      // Remove existing highlights first
+      removeHighlight(element);
 
-        // Add new highlight
-        innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
-        element.innerHTML = innerHTML;
-      }
+      // Add new highlight
+      innerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + keyword.length) + "</span>" + innerHTML.substring(index + keyword.length);
+      element.innerHTML = innerHTML;
     }
+  }
 
-    function removeHighlight(element) {
-      // Remove any existing highlight spans
-      var highlightSpans = element.querySelectorAll(".highlight");
-      highlightSpans.forEach(function(span) {
-        span.outerHTML = span.innerHTML; // Replace the span with its innerHTML to remove it
-      });
-    }
+  function removeHighlight(element) {
+    // Remove any existing highlight spans
+    var highlightSpans = element.querySelectorAll(".highlight");
+    highlightSpans.forEach(function(span) {
+      span.outerHTML = span.innerHTML; // Replace the span with its innerHTML to remove it
+    });
+  }
   </script>
       
 
