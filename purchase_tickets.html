@@ -156,7 +156,7 @@
             <option value="paypal">PayPal</option>
         </select><br><br>
 
-        <button type="button" onclick="purchaseTickets()" class="btn">Purchase Tickets</button>
+       <button type="button" onclick="redirectToPaymentPage()" class="btn">Proceed to Payment</button>
     </div>
     </form>
 
@@ -189,6 +189,12 @@
             var totalPrice = pricePerTicket * quantity;
             return totalPrice;
         }
+
+       function redirectToPaymentPage() {
+            var paymentMethod = document.getElementById("paymentMethod").value;
+            if (paymentMethod === "creditCard") {
+                window.location.href = "payment.html"; // Redirect to payment.html
+            } 
     </script>
 
     <footer class="text-light pt-5 pb-4">
