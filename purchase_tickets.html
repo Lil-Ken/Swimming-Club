@@ -190,15 +190,8 @@
             return totalPrice;
         }
 
-      function redirectToPaymentPage() {
-    var paymentMethod = document.getElementById("paymentMethod").value;
-    if (paymentMethod === "creditCard") {
-        window.location.href = "payment.html"; // Redirect to payment.html
-    } else if (paymentMethod === "debitCard") {
-        window.location.href = "debit_card_payment.html"; // Redirect to debit card payment page
-    } else if (paymentMethod === "paypal") {
-        window.location.href = "paypal_payment.html"; // Redirect to PayPal payment page
-    }
+       function redirectToPaymentPage() {
+    window.location.href = "payment.html"; // Redirect to payment page
 }
     </script>
 
