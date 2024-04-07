@@ -130,14 +130,14 @@
         <h3 class="fw-bold text-center text-light fs-2">Events</h3>
       </div>
 
-      <div class="container-fluid">
+     <div class="container-fluid">
         <div class="row justify-content-center">
           <div class="col-md-8">
             <div class="d-flex justify-content-center">
-              <form class="d-flex w-75 mb-5" onsubmit="event.preventDefault(); searchEvents();">
+              <form class="d-flex w-75 mb-5" id="searchForm">
                 <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="searchInput">
                 <div class="d-grid col-1 mx-auto">
-                  <button class="btn btn-outline-light" type="submit"><i class="fa fa-search"></i></button>
+                  <button class="btn btn-outline-light" type="submit" id="searchButton"><i class="fa fa-search"></i></button>
                 </div>
               </form>
             </div>
@@ -233,52 +233,59 @@
 </div>
 
 <script>
-document.getElementById("searchInput").addEventListener("input", function() {
-  var searchInput = this.value.trim().toLowerCase();
+  // Event listener for search form submit
+document.getElementById("searchForm").addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent default form submission
+  searchEvents();
+});
+
+// Function to search events
+function searchEvents() {
+  var searchInput = document.getElementById("searchInput").value.trim();
   var events = document.querySelectorAll('.text');
 
   events.forEach(function(event) {
-    var title = event.querySelector('h4').textContent.toLowerCase();
-    if (title.includes(searchInput)) {
+    var title = event.querySelector('h4').textContent;
+    var matched = false;
+
+    if (title.toLowerCase().includes(searchInput.toLowerCase())) {
+      matched = true;
+    }
+
+    if (matched) {
       event.style.display = 'block';
-      highlightKeyword(event, searchInput);
+      highlightKeywords(event.querySelector('h4'), searchInput);
     } else {
       event.style.display = 'none';
+      removeHighlight(event.querySelector('h4'));
     }
   });
-
-  
-  if (searchInput === "") {
-    events.forEach(function(event) {
-      event.style.display = 'block';
-      removeHighlight(event);
-    });
-  }
-});
-
-function highlightKeyword(event, searchInput) {
-  var innerHTML = event.innerHTML;
-  var index = innerHTML.toLowerCase().indexOf(searchInput);
-  if (index >= 0) {
-    var newInnerHTML = innerHTML.substring(0, index) + "<span class='highlight'>" + innerHTML.substring(index, index + searchInput.length) + "</span>" + innerHTML.substring(index + searchInput.length);
-    event.innerHTML = newInnerHTML;
-  }
 }
 
-function removeHighlight(event) {
-  var highlightSpans = event.querySelectorAll(".highlight");
-  highlightSpans.forEach(function(span) {
-    span.outerHTML = span.innerHTML;
+// Function to highlight keywords
+function highlightKeywords(element, searchInput) {
+  var text = element.textContent;
+  var pattern = new RegExp(searchInput, 'gi');
+  var highlightedText = text.replace(pattern, "<span class='highlight'>$&</span>");
+  element.innerHTML = highlightedText;
+}
+
+// Function to remove highlight
+function removeHighlight(element) {
+  var highlightedElements = element.querySelectorAll('.highlight');
+  highlightedElements.forEach(function(element) {
+    element.outerHTML = element.innerHTML;
   });
 }
 
-
+// Event listener for input change in search input
 document.getElementById("searchInput").addEventListener("input", function() {
-  if (this.value.trim() === "") {
+  var searchInput = this.value.trim();
+  if (searchInput === "") {
     var events = document.querySelectorAll('.text');
     events.forEach(function(event) {
       event.style.display = 'block';
-      removeHighlight(event);
+      removeHighlight(event.querySelector('h4'));
     });
   }
 });
