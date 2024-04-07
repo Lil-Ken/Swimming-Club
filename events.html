@@ -288,21 +288,7 @@ function searchEvents() {
   });
 }
 
-// Function to highlight keywords
-function highlightKeywords(element, searchInput) {
-  var text = element.textContent;
-  var pattern = new RegExp(searchInput, 'gi');
-  var highlightedText = text.replace(pattern, "<span class='highlight'>$&</span>");
-  element.innerHTML = highlightedText;
-}
 
-// Function to remove highlight
-function removeHighlight(element) {
-  var highlightedElements = element.querySelectorAll('.highlight');
-  highlightedElements.forEach(function(element) {
-    element.outerHTML = element.innerHTML;
-  });
-}
 
 // Event listener for input change in search input
 document.getElementById("searchInput").addEventListener("input", function() {
