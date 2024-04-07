@@ -66,9 +66,6 @@
          background-repeat: no-repeat;
       } 
 
-      .highlight {
-        background-color: yellow;
-      }
 
     </style>
 </head>
@@ -272,27 +269,9 @@ function searchEvents() {
 
     if (matched) {
       event.style.display = 'block';
-      highlightKeywords(event.querySelector('h4'), searchInput);
     } else {
       event.style.display = 'none';
-      removeHighlight(event.querySelector('h4'));
     }
-  });
-}
-
-// Function to highlight keywords
-function highlightKeywords(element, searchInput) {
-  var text = element.textContent;
-  var pattern = new RegExp(searchInput, 'gi');
-  var highlightedText = text.replace(pattern, "<span class='highlight'>$&</span>");
-  element.innerHTML = highlightedText;
-}
-
-// Function to remove highlight
-function removeHighlight(element) {
-  var highlightedElements = element.querySelectorAll('.highlight');
-  highlightedElements.forEach(function(element) {
-    element.outerHTML = element.innerHTML;
   });
 }
 
@@ -303,10 +282,17 @@ document.getElementById("searchInput").addEventListener("input", function() {
     var events = document.querySelectorAll('.text');
     events.forEach(function(event) {
       event.style.display = 'block';
-      removeHighlight(event.querySelector('h4'));
     });
   }
 });
+
+function storeEventInfo(eventName) {
+    var eventInfo = {
+        title: eventName,
+        // 其他活动信息
+    };
+    localStorage.setItem('selectedEvent', JSON.stringify(eventInfo));
+}
 </script>
 
     <footer class="text-light pt-5 pb-4">
