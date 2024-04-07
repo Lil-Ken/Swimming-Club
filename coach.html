@@ -14,41 +14,38 @@
     <link href="css/style.css" rel="stylesheet">
     <style>
       .a{
-        width: 230px;
+        width: 295px;
+        height: 100%;
       }
       body {
-        font-family: Arial, sans-serif;
+          font-family: Arial, sans-serif;
       }
       .container {
-        max-width: 1200px;
-        margin: 0 auto;
-        padding: 20px;
-        display: flex;
-        flex-wrap: wrap;
+          max-width: 1200px;
+          margin: 0 auto;
+          padding: 30px;
+          display: flex;
+          flex-wrap: wrap;
       }
       .coach-container {
-        flex: 1;
-        padding: 10px;
-        border: 1px solid #ccc; 
-        margin: -10px; 
-        display: flex;
-        transition: transform 0.3s ease-in-out;
-        border-radius: 15px;
+          flex: 1;
+          padding: 10px;
+          border: 1px solid #ccc; 
+          margin: -10px; 
+          display: flex;
+          transition: transform 0.3s ease-in-out;
+          border-radius: 15px;
       }
       .image-container {
-        padding-right: 20px; 
+          padding-right: 20px; 
       }
+
+
       .info-container h4 {
-        margin-top: 0;
-        font-size: 25px; 
+          margin-top: 0;
       }
       .info-container p {
-        margin-bottom: 5px;
-        font-size: 15px; 
-      }
-      .info-container ul {
-        margin-bottom: 5px;
-        font-size: 16px;
+          margin-bottom: 10px;
       }
 
       .coach-container:hover {
@@ -57,6 +54,16 @@
         box-shadow: 0px 0px 10px rgba(65, 65, 65, 0.5);
         transition: transform 0.3s ease-in-out, background-color 0.4s ease-in-out;
       }
+
+      .bg-image {
+        background: url("image/4.jpg");
+        background-color: rgba(255, 255, 255, 0.6); 
+        background-blend-mode: multiply;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: bottom;
+      } 
+
   </style>
 
   </head>
@@ -115,9 +122,12 @@
         </div>
       </div>
     </nav>
-
     
-      <h3 class="fw-bold text-center fs-2" style="margin-top: 2%;">Our Coaches</h3>
+    <div class="container-fluid bg-image py-5">
+      <div class="row justify-content-center py-3">
+        <h3 class="fw-bold text-center text-light fs-2">Our Coaches</h3>
+      </div> 
+    </div>
 
     <div class="container">
         <div class="coach-container">
@@ -125,16 +135,16 @@
                 <img class="a" src="image/Fan Chao Ze.jpg" alt="Coach Image">
             </div>
             <div class="info-container">
-                <h4>Coach Camry Ze</h4>
+                <h4 class="fw-bold text-center">Coach Chao Ze</h4>
                 <p><strong>Experience:</strong> 10 years</p>
                 <p><strong>Specialization:</strong> Swimming, Fitness Training</p>
                 <p><strong>Certifications:</strong> 
                     <ul>
-                        <li>Swimming Coach Certification</li>
-                        <li>Fitness Trainer Certification</li>
+                        <li>Master Swimming Coach Certification</li>
+                        <li>Master Fitness Trainer Certification</li>
                     </ul>
                 </p>
-                <p>Coach Camry has a decade of experience in coaching swimming and fitness training. He is passionate about helping individuals achieve their fitness goals through swimming and personalized training programs. With his expertise in both swimming techniques and fitness conditioning, Coach Camry has successfully guided numerous clients to improve their swimming skills, build strength, and enhance overall fitness levels. His supportive approach and tailored workouts make him a popular choice among swimmers looking to excel in the pool and beyond.</p>
+                <p class="text-body-secondary">Coach Chao Ze has a decade of experience in coaching swimming and fitness training. He is passionate about helping individuals achieve their fitness goals through swimming and personalized training programs. With his expertise in both swimming techniques and fitness conditioning, Coach Chao Ze has successfully guided numerous clients to improve their swimming skills, build strength, and enhance overall fitness levels. His supportive approach and tailored workouts make him a popular choice among swimmers looking to excel in the pool and beyond.</p>
             </div>
         </div>
     </div>
@@ -145,7 +155,7 @@
                 <img class="a" src="image/c1.png" alt="Coach Image">
             </div>
             <div class="info-container">
-                <h4>Coach Simon Dass</h4>
+                <h4 class="fw-bold text-center">Coach Simon Dass</h4>
                 <p><strong>Experience:</strong> 7 years</p>
                 <p><strong>Specialization:</strong> Swimming, Open Water Swimming</p>
                 <p><strong>Certifications:</strong> 
@@ -154,7 +164,7 @@
                         <li>Open Water Swimming Coach Certification</li>
                     </ul>
                 </p>
-                <p> Coach Simon has 7 years of experience coaching swimming, with a particular focus on open water swimming. He helps his clients develop the skills and confidence needed to tackle long-distance swims and navigate various water conditions. His supportive coaching style and attention to detail make his a trusted mentor for swimmers of all levels.</p>
+                <p class="text-body-secondary"> Coach Simon has 7 years of experience coaching swimming, with a particular focus on open water swimming. He helps his clients develop the skills and confidence needed to tackle long-distance swims and navigate various water conditions. His supportive coaching style and attention to detail make his a trusted mentor for swimmers of all levels.</p>
             </div>
         </div>
     </div>
@@ -165,7 +175,7 @@
                 <img class="a" src="image/c2.png" alt="Coach Image">
             </div>
             <div class="info-container">
-                <h4>John Hasster</h4>
+                <h4 class="fw-bold text-center">John Hasster</h4>
                 <p><strong>Experience:</strong> 20 years</p>
                 <p><strong>Specialization:</strong> Swimming,</p>
                 <p><strong>Certifications:</strong> 
@@ -173,7 +183,7 @@
                         <li>Swimming Coach Certification</li>
                     </ul>
                 </p>
-                <p>Coach John has over 20 years of experience in coaching swimming and triathlon training. He is dedicated to helping his clients achieve their fitness goals and improve their swimming techniques. With his expertise, many of his athletes have excelled in local and national swimming competitions.</p>
+                <p class="text-body-secondary">Coach John has over 20 years of experience in coaching swimming and triathlon training. He is dedicated to helping his clients achieve their fitness goals and improve their swimming techniques. With his expertise, many of his athletes have excelled in local and national swimming competitions.</p>
             </div>
         </div>
 
@@ -186,7 +196,7 @@
                 <img class="a" src="image/c3.png" alt="Coach Image">
             </div>
             <div class="info-container">
-                <h4>Coach Micheal James</h4>
+                <h4 class="fw-bold text-center">Coach Micheal James</h4>
                 <p><strong>Experience:</strong> 12 years</p>
                 <p><strong>Specialization:</strong> Swimming, Water Polo</p>
                 <p><strong>Certifications:</strong> 
@@ -195,7 +205,7 @@
                         <li>Open Water Swimming Coach Certification</li>
                     </ul>
                 </p>
-                <p>Coach Michael brings 12 years of coaching experience to the pool, specializing in both swimming and water polo. His passion for the sport and commitment to his athletes have led many to success in both individual and team competitions. He focuses on technique refinement and endurance training to help swimmers reach their full potential.</p>
+                <p class="text-body-secondary">Coach Michael brings 12 years of coaching experience to the pool, specializing in both swimming and water polo. His passion for the sport and commitment to his athletes have led many to success in both individual and team competitions. He focuses on technique refinement and endurance training to help swimmers reach their full potential.</p>
             </div>
         </div>
 
@@ -203,7 +213,7 @@
     </div>
 
 
-    <footer class="text-light pt-5 pb-4 mt-5">
+    <footer class="text-light pt-5 pb-4">
         <div class="container text-center text-md-right">
           <div class="row text-center text-md-right">
             <div class="col-md-4 mx-auto mt-3">
