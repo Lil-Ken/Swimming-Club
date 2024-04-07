@@ -45,6 +45,15 @@
         justify-content: center;
       }
 
+      .bg-image {
+         background: url("image/6.jpg");
+         background-color: rgba(255, 255, 255, 0.6); 
+         background-blend-mode: multiply;
+         background-size: cover;
+         background-repeat: no-repeat;
+      } 
+
+
     </style>
   </head>
 
@@ -104,22 +113,23 @@
     </nav>
 
     <a id="facilities"></a>
-
-    <div class="container py-5 my-2 ">
-        
+         
+      <div class="container-fluid bg-image py-5">
         <div class="row justify-content-center">
-        <h3 class="fw-bold text-center fs-2">Our Facilities</h3>
+        <h3 class="fw-bold text-center fs-2 text-light">Our Facilities</h3>
         </div>
         <div class="row justify-content-center">
-        <div class="col-md-6 text-center pb-2">
-            Experience swimming excellence with our top-tier facilities at Blue Ocean Club. From Olympic Size Pool to Sauna Room, we provide everything you need for a rewarding "Blue Ocean" journey.
+        <div class="col-md-6 text-center pb-2 text-light">
+          Experience swimming excellence with our top-tier facilities at Blue Ocean Club. From Olympic Size Pool to Sauna Room, we provide everything you need for a rewarding "Blue Ocean" journey.
         </div>
         </div>
-        
+      
+        <br>
         <div class="button-book d-grid gap-2 col-2 mx-auto">
-            <a href="booknow.html"><button class="btn btn-info btn-lg px-4" type="button">Book Now</button></a>
-          </div>
-    
+          <a href="booknow.html"><button class="btn btn-warning btn-lg px-4" type="button">Book Now</button></a>
+        </div>
+      </div>
+    <div class="container py-4 ">  
     <div class="container">
       <div class="row justify-content-center grid gap-5">
         <div class="g-4 col-5">
@@ -174,8 +184,6 @@
       </div>
 
     </div>
-    
-    
         
     
     </div>
