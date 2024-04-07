@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blue Ocean Club</title>
+    <link rel="icon" href="image/logo-rb.png" type="image/x-icon"/>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link href="css/style.css" rel="stylesheet">
+
+    <style type="text/css">
+      .title{
+      padding: 2%;
+      }
+      .text img {
+        width: 100%; 
+        height: 200px; 
+        object-fit: cover;
+        transition: all 0.3s ease;      
+      }
+
+      .text {
+        padding: 20px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+        height: 450px;
+        overflow: hidden;
+      }
+
+      .text:hover {
+        opacity: 100;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        transform: scale(1.01);
+      }
+
+      .img-padding {
+        padding-bottom: 10px;
+      }
+
+      .button-book {
+        padding: 10px;
+        justify-content: center;
+      }
+
+      .bg-image {
+         background: url("image/4.jpg");
+         background-color: rgba(255, 255, 255, 0.6); 
+         background-blend-mode: multiply;
+         background-size: cover;
+         background-repeat: no-repeat;
+      } 
+
+    </style>
+</head>
+
+  <body>
+   <!-- navbar -->
+    <nav class="navbar navbar-expand-lg sticky-top bg-gradient py-sm-2 py-lg-3 fw-bold " data-bs-theme="dark">
+      <div class="container-fluid">
+        <a class="navbar-brand fs-4" href="index.html">
+          <img src="image/logo-rb.png" alt="Logo" width="50" height="40" class="d-inline-block">
+          <span class="text-info">Blue Ocean</span>
+           Club</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbar">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" aria-current="page" role="button" data-bs-toggle="dropdown" aria-expanded="false" href="#">Home</a>
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
+                <li><a class="nav-link" href="index.html#about" onclick="navigate('about')">About Us</a></li>
+                <li><a class="nav-link " href="index.html#contact" onclick="navigate('contact')">Contact Us</a></li>
+                <li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="events.html">Events</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="facilities.html">Facilities</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="booknow.html">Book Now</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="coach.html">Coaches</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="pricing.html">Member Package</a>
+            </li>
+          </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="nav-item dropdown">
+              <a href="#" class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown" aria-expanded="false"><span><i class="bi bi-person-fill"></i></span> Login</a>
+              <ul class="dropdown-menu animate__animated animate__fadeIn animate__faster border border-1">
+                <li><a class="dropdown-item" href="admin.html">Administrator</a></li>
+                <li><a class="dropdown-item" href="member.html">Member</a></li>
+                <li>
+              </ul>
+            </li>
+            <li class="nav-item dropdown">
+              <a href="register.html" class="nav-link"><span><i class="bi bi-box-arrow-in-right"></i></span> Register</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+     
+    <div class="container-fluid bg-image py-5">
+      <div class="row justify-content-center py-3">
+        <h3 class="fw-bold text-center text-light fs-2">Events</h3>
+      </div>
+
+      <div class="container-fluid">
+        <div class="row justify-content-center">
+          <div class="col-md-8">
+            <div class="d-flex justify-content-center">
+              <form class="d-flex w-75 mb-5" onsubmit="event.preventDefault(); searchEvents();">
+                <input class="form-control me-2" type="text" placeholder="Search" aria-label="Search" id="searchInput">
+                <div class="d-grid col-1 mx-auto">
+                  <button class="btn btn-light" type="submit"><i class="fa fa-search"></i></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+      <div class="button-book d-grid gap-2 col-2 mx-auto">
+        <a href="purchase_tickets.html"><button class="btn btn-warning btn-lg px-4" type="button">Purchase Ticket</button></a>
+      </div>
+    </div>
+
+    <div class="container py-4">  
+      <div class="container">
+        <div class="row justify-content-center grid gap-6">
+          <div class="g-4 col-10">
+            <div class="text" style="padding: 0.3px;">
+              <img src="image/event1.avif" alt="10th Blue Ocean Open Swimming Championship" class="img-padding">
+              <h4 class="a fs-4 fw-bold text-center">10th Blue Ocean Open Swimming Championship</h4>
+                  <p class="fs-6 text-body-secondary text-center"><b>Category:</b> Male and Female 100M Freestyle
+                  <br><b>Required:</b> Age 18+ <br><b>Date:</b> 2/6/2024
+                  <br><b>Price:</b> RM60/pax <br><b>Prize:</b> <br>1st RM5,000  <br>2nd RM3,000  <br>3rd RM2,500</p>     
+            </div>
+          </div>
+  
+          <div class="hover g-4  col-6 ">
+            <div class="text">
+              <img src="image/event2.jpeg" alt="Blue Ocean Water Polo Championship 2024" class="img-padding">
+              <h4 class="a fs-4 fw-bold text-center">Blue Ocean Water Polo Championship 2024</h4>
+              <p class="fs-6 text-body-secondary text-center"><b>Category:</b> Male and Female
+                <br><b>Required:</b> Age 18+ <br><b>Date:</b> 8/7/2024 - 9/7/2024
+                <br><b>Price:</b> RM250/team <br><b>Prize:</b> <br>1st RM3,000  <br>2nd RM2,000  <br>3rd RM1,000</p>
+            </div>
+          </div>
+  
+          <div class="g-4 col-6">
+            <div class="text">
+              <img src="image/event5.jpg" alt="Blue Ocean Children Open 2024" class="img-padding">
+              <h4 class="a fs-4 fw-bold text-center">Blue Ocean Children Open 2024</h4>
+              <p class="fs-6 text-body-secondary text-center"><b>Category:</b> Age 5-9 and Age 10-17 
+                <br><b>Required:</b> Age 5-17 <br><b>Date:</b> 6/9/2024
+                <br><b>Price:</b> RM20/pax <br><b>Prize:</b> <br>1st RM150  <br>2nd RM100  <br>3rd RM75</p>
+            </div>
+          </div>
+  
+        </div>
+  
+      </div>
+          
+    </div>
+
+    <footer class="text-light pt-5 pb-4">
+        <div class="container text-center text-md-right">
+          <div class="row text-center text-md-right">
+            <div class="col-md-4 mx-auto mt-3">
+              <h4 class="text-uppercase mb-4 fw-bold text-info">Blue Ocean <span class="text-light">Club</span></h4>
+              <p>Welcome to Blue Ocean Club! We're dedicated to providing a welcoming and inclusive environment where swimmers of all ages and abilities can thrive. Whether you're just starting your swimming journey or aiming for competitive success, we have something for everyone.</p>
+            </div>
+  
+            <div class="col-md-3 mx-auto mt-3">
+              <h4 class="text-uppercase mb-4 fw-bold"><u>Contact Us</u></h4>
+              <div class="col-md mx-auto">
+                <p>
+                  <i class="fas fa-home mr-3"></i> <a href="https://maps.app.goo.gl/vpiFL9EwChkxR76r7" target="blank" class="link-opacity-50-hover text-decoration-none text-light">Desa Setapak 53100 Kuala Lumpur</a>
+                </p>
+                <p>
+                  <i class="fas fa-envelope mr-3"></i> <a href="mailto:sc@gmail.com" target="blank" class="link-opacity-50-hover text-decoration-none text-light">blueoceanclub@gmail.com</a>
+                </p>
+                <p>
+                  <i class="fas fa-phone mr-3"></i> <a href="tel:+60 12345678" target="blank" class="link-opacity-50-hover text-decoration-none text-light">+60 17-668 6635</a>
+                </p>
+                <p>
+                  <i class="fas fa-print mr-3"></i> <a href="tel:+03 456 789 12" target="blank" class="link-opacity-50-hover text-decoration-none text-light">+03 456 789 12</a>
+                </p>
+            </div>
+          </div>
+        </div>
+  
+        <hr class="mt-4">
+  
+        <div class="row text-start">
+          <div class="col-md-7 col-lg-8 ">
+            <p>
+              Copyright &copy;2024 All rights reserved by:
+              <a href="#" class="text-info link-opacity-50-hover text-decoration-none fw-bold">Blue Ocean <span class="text-light">Club</span></a>
+            </p>
+          </div>
+  
+          <div class="col-md-5 col-lg-4">
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a href="https://www.facebook.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fa-facebook"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://twitter.com/home" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-twitter"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.instagram.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-instagram"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://discord.com/" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fa-discord"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://www.youtube.com/watch?v=q-rhOvhcPE0" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fa-youtube"></i></a>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://ms.wikipedia.org/wiki/Babi" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fa-telegram"></i></a>
+                </li>
+                </li>
+                <li class="list-inline-item">
+                  <a href="https://en.wikipedia.org/wiki/Kris_Wu" target="blank" class="btn-floating btn-sm text-white fs-3"><i class="fab fab fab fab fa-weibo"></i></a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+  
+      </footer>
+  
+  
+      <script src="js/bootstrap.bundle.js"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@floating-ui/core@1.6.0"></script>
+      <script src="https://cdn.jsdelivr.net/npm/@floating-ui/dom@1.6.3"></script>
+      <script>
+        function navigate(sectionId) {
+  
+          var navbarCollapse = document.getElementById('navbar');
+          navbarCollapse.classList.remove('show');
+  
+  
+          var section = document.getElementById(sectionId);
+          section.scrollIntoView({ behavior: 'smooth' });
+        }
+  
+      </script>
+    </body>
+</html>
