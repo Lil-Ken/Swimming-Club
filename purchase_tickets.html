@@ -140,16 +140,10 @@
                 <div id="emailError" class="error-message"></div>
             </div>
 
-        <div class="form-group">
-        <label for="eventSelect">Choose Event:</label>
-        <select id="eventSelect" name="eventSelect" required>
-            <option value="swimming">Swimming Competitions</option>
-            <option value="lectures">Technical Lectures</option>
-            <option value="Holiday Themed Events">Holiday Themed Events</option>
-            <option value="Social Events">Social Events</option>
-            <option value="Outdoor Swimming Activities">Outdoor Swimming Activities</option>
-            <option value="Training Camps and Workshops">Training Camps and Workshops</option>
-        </select><br><br> </div>
+            <div class="form-group">
+              <label for="eventSelect">Event:</label>
+              <input type="text" id="selectedEvent" name="selectedEvent" readonly required>
+            </div>
 
     
         <div class="form-group">
@@ -172,38 +166,45 @@
     <div id="orderDetails" style="display: none;"></div>
 
     <script>
+      // 读取本地存储中的所选活动信息并显示在文本框中
+      var selectedEvent = JSON.parse(localStorage.getItem('selectedEvent'));
+      if (selectedEvent) {
+        document.getElementById('selectedEvent').value = selectedEvent.title;
+      }
+  
       function purchaseTickets() {
         var fullName = document.getElementById("fullName").value;
         var email = document.getElementById("email").value;
         var fullNameError = document.getElementById("fullNameError");
         var emailError = document.getElementById("emailError");
         var isValid = true;
-
+  
         // Reset error messages
         fullNameError.innerHTML = "";
         emailError.innerHTML = "";
-
+  
         // Check if full name is empty
         if (fullName.trim() === "") {
-            fullNameError.innerHTML = "Please enter your full name";
-            isValid = false;
+          fullNameError.innerHTML = "Please enter your full name";
+          isValid = false;
         }
-
+  
         // Check if email is empty
         if (email.trim() === "") {
-            emailError.innerHTML = "Please enter your email";
-            isValid = false;
+          emailError.innerHTML = "Please enter your email";
+          isValid = false;
         }
-
+  
         // If any field is invalid, return
         if (!isValid) {
-            return;
+          return;
         }
-
+  
         // Proceed to payment
         window.location.href = "payment.html"; // Redirect to payment page
-    }
+      }
     </script>
+  </div>
 
     <footer class="text-light pt-5 pb-4">
         <div class="container text-center text-md-right">
